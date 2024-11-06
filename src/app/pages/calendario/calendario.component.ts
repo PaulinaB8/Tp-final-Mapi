@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './calendario.component.html',
-  styleUrl: './calendario.component.css'
+  styleUrl: './calendario.component.scss'
 })
 export class CalendarioComponent {
 

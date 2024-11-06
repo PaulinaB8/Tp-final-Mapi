@@ -6,15 +6,30 @@
     <h1>Hello Candela ...</h1>
     <div id="contenido">
         <div id="notes">
-            <p>Notes</p>
-            <div id="sector-notas">
-            @for (note of notes; track $index){
-                <div class="nota">
-                    
-                </div>
-            }
-            </div>
             
+            <div id="sector-notas" (click)="goNotas()">
+                <p>Notes</p>
+                @for (note of notes; track $index){
+                    <div class="nota">
+                        <!-- <p>{{notes.titulo}}</p> -->
+                    </div>
+                }
+            </div>
+            <div id="sector-lista" (click)="goListas()">
+                <p>Lists</p>
+                @for(list of lists; track $index){
+                    <div class="lista">
+                        <!-- <p>{{lists.titulo}}</p> -->
+                    </div>
+                }
+            </div>
+            <div id="sector-calendario" (click)="goCalendar()">
+                <p>Calendar</p>
+                <p>{{mes}}</p>
+                <div id="calendario">
+
+                </div>
+            </div>
             
         </div>
         <div id="to-do-list">
