@@ -2,11 +2,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Nota } from '../../interfaces/nota';
 import { Lista } from '../../interfaces/lista';
 import { Router } from '@angular/router';
+import { HeaderComponent } from '../../header/header.component';
 
 @Component({
   selector: 'app-vista-previa',
   standalone: true,
-  imports: [],
+  imports: [HeaderComponent],
   templateUrl: './vista-previa.component.html',
   styleUrl: './vista-previa.component.scss'
 })

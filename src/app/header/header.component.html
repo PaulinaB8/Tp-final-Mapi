@@ -1,22 +1,12 @@
 <header>
     <header>
-        <p onclick="openSidebar()" id="menu">MENU</p>
-        <a href="index.html"><img src="spritz.png" alt="logo"></a>
-
-        <div class="redes">
-            <a href="https://ar.pinterest.com/candegor/spritz/" target="_blank">
-                <img src= "https://cdn-icons-png.flaticon.com/512/25/25698.png" alt="pn" id="pn" >  
-            </a>
-            <a href="https://open.spotify.com/playlist/4TOFmIv137LePbjiJylaLZ?si=c5d41e96b7be4df5" target="_blank">
-                <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_Black.png" alt="sp" id="sp" >
-            </a>
-        </div>  
+    
+        <i class='bx bx-menu' onclick="openSidebar()" id="menu"></i>
+        <a [routerLink]="['/vista-previa']" routerLinkActive="active" > <img src="styles/mapi-logo.png" alt="mapi-logo"></a>
+    
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">×</a> 
+           
+        </div>
+        
     </header>
-
-    <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">×</a> 
-        <a href="index.html">INICIO</a>
-        <a href="SS25.html">SS25</a>
-        <a href="AW24.html">AW24</a>
-    </div>
-</header>
