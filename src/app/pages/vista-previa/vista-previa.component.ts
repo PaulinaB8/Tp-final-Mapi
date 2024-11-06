@@ -4,6 +4,7 @@ import { Lista } from '../../interfaces/lista';
 import { Router } from '@angular/router';
 import { HeaderComponent } from '../../header/header.component';
 
+
 @Component({
   selector: 'app-vista-previa',
   standalone: true,
