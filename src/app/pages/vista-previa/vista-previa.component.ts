@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Nota } from '../../interfaces/nota';
 
+
 @Component({
   selector: 'app-vista-previa',
   standalone: true,
