@@ -31,6 +31,7 @@ export class HeaderComponent {
     this.renderer.setStyle(this.mySidebar.nativeElement, 'width', '0');
   }
 
+  
 
 
 }
