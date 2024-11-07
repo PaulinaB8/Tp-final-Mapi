@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Renderer2, ViewChild, ElementRef } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 
 @Component({
@@ -9,17 +9,28 @@ import { Router, RouterModule } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-<<<<<<< HEAD
   router = inject(Router);
-=======
 
-  routes = inject(Router);
+  
 
   // openSidebar() {
   //    this.getElementById("mySidebar").style.width = "250px";
   // }
+  // Referencia al elemento con el id `mySidebar`
+  @ViewChild('mySidebar') mySidebar!: ElementRef;
 
->>>>>>> bb2c3a90f455ec56edc04b4aee2bace73f0d350a
+  constructor(private renderer: Renderer2) {}
+
+  // Función para abrir la barra lateral
+  openSidebar() {
+    this.renderer.setStyle(this.mySidebar.nativeElement, 'width', '250px');
+  }
+
+  // Función para cerrar la barra lateral
+  closeSidebar() {
+    this.renderer.setStyle(this.mySidebar.nativeElement, 'width', '0');
+  }
+
 }
 
 
