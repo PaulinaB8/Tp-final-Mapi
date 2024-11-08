@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { HeaderComponent } from '../../header/header.component';
 
 
+
 @Component({
   selector: 'app-vista-previa',
   standalone: true,
@@ -20,6 +21,7 @@ export class VistaPreviaComponent implements OnInit{
 
   lists : Lista[] = [];
 
+
   mes = "";
 
   ngOnInit(){
@@ -30,6 +32,8 @@ export class VistaPreviaComponent implements OnInit{
       year:"numeric",
     })
     this.mes = mes;
+
+    this.getNotas()
   }
 
   goNotas(){
@@ -44,4 +48,14 @@ export class VistaPreviaComponent implements OnInit{
     this.router.navigate(['/calendario']);
   }
 
+  crearNuevaNota(){
+    this.router.navigate(['/notas']);
+  }
+
+
+
+  getNotas(){
+     let notas =  localStorage.getItem('lista')
+     console.log(notas)
+  }
 }
