@@ -1,5 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Renderer2, ViewChild, ElementRef } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',

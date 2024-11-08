@@ -1,11 +1,9 @@
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <header>
-    
-    <i class='bx bx-menu' onclick="openSidebar()" id="menu"></i>
-    <a [routerLink]="['/vista-previa']" routerLinkActive="active" > <img src="styles/mapi-logo.png" alt="mapi-logo"></a>
-
-    <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">×</a> 
-       
-    </div>
-    
-</header>
+    <button>
+      <a [routerLink]="['/menu']" routerLinkActive="active"> menu </a>
+    </button>
+    <a [routerLink]="['/vista-previa']" routerLinkActive="active">
+      <img src="src/assets/mapi-logo.png" alt="mapi-logo">
+    </a>
+  </header>
