@@ -6,9 +6,13 @@
     <h1>Hello Candela ...</h1>
     <div id="contenido">
         <div id="notes">
+            <button type="button"></button>
             
             <div id="sector-notas" (click)="goNotas()">
                 <p>Notes</p>
+                <div class="nota" (click)="crearNuevaNota()">
+                    <p>Nueva nota</p>
+                </div>
                 @for (note of notes; track $index){
                     <div class="nota">
                         <!-- <p>{{notes.titulo}}</p> -->
@@ -27,7 +31,6 @@
                 <p>Calendar</p>
                 <p>{{mes}}</p>
                 <div id="calendario">
-
                 </div>
             </div>
             
