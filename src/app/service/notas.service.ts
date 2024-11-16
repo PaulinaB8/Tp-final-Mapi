@@ -11,7 +11,7 @@ export class NotasService {
       method: 'POST',
       headers:{
         'Content-Type': "application/json",
-        'Authorization' : `Bearer src/app/service/auth.google.service.ts`
+        'Authorization' : `Bearer AIzaSyDg1ZCHv10VY7qs5P1Ld8sAkw0fFL3uMHc`
       },
       body: JSON.stringify({
           "name": contenidoNota.titulo,

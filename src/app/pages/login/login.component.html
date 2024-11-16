@@ -12,8 +12,11 @@
             <p>Si aún no has creado tu cuenta, </p>
             <a>Registrate</a> -->
         <!-- </div> -->
-        <button (click)="logIn()" type="submit">Sign in</button>
-    </form>
+        <main>
+            <button id="authorize_button" (click)="handleAuthClick()" style="visibility: hidden;">Authorize</button>
+            <button id="signout_button" (click)="handleSignoutClick()" style="visibility: hidden;">Sign Out</button>
+            <pre id="content" style="white-space: pre-wrap;"></pre> 
+          </main>
     
-</main>
+
 
