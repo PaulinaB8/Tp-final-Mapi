@@ -1,38 +1,11 @@
-<div
-  class="sidenav"
-  [ngClass]="isMenuComponentCollapsed() ? 'sidenav-collapsed' : ''"
->
-  <div class="logo-container">
-    <button class="logo" (click)="toggleCollapse()">
-      <i class="fal fa-bars"></i>
-    </button>
-    @if (!isMenuComponentCollapsed()) {
-      <div class="logo-text">App</div>
-      <button class="btn-close" (click)="closeSidenav()">
-        <i class="fal fa-times close-icon"></i>
-      </button>
-    }
-  </div>
-  <div class="sidenav-nav">
-    @for (item of items; track $index) {
-      <li class="sidenav-nav-item">
-        <a
-          class="sidenav-nav-link"
-          [routerLink]="item.routeLink"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-        >
-          <i class="sidenav-link-icon" [class]="item.icon"></i>
-          @if (!isMenuComponentCollapsed()) {
-            <span class="sidenav-link-text">{{ item.label }}</span>
-          }
-        </a>
-      </li>
-    }
-  </div>
+<div [ngClass]="{'sidenav': true, 'sidenav-collapsed': isMenuComponentCollapsed}" id="Sidebar">
+  <H1 >Hi, Candela</H1>
+  
+  <button [routerLink]="['/vista-previa']" routerLinkActive="active" id="Inicio-button"> Inicio </button>
+  <button (click)="goBack()" id="closebtn">X</button>
 </div>
-    
- 
+
+
 
 
 
