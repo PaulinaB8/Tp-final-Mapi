@@ -1,38 +1,62 @@
-import { Injectable } from '@angular/core';
- import { AuthConfig, OAuthService } from 'angular-oauth2-oidc';
+import { inject, Injectable } from '@angular/core';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { environment } from '../environment/environment.firebase';
+import { initializeApp } from 'firebase/app';
+import { Router } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGoogleService {
 
-   constructor(private oAuthService: OAuthService) { 
-     this.inItLogin();
-   }
+   router = inject(Router);
 
-   inItLogin(){
-     const config : AuthConfig = {
-       issuer:'htts://accounts.google.com',
-       strictDiscoveryDocumentValidation: false,
-       clientId: '800748931276-v28h6nujof68335vcs1bhjjmgkcvkobs.apps.googleusercontent.com',
-       redirectUri: window.location.origin + '/vista-previa',
-       scope: 'openid profile emial',
-     }
+  loginGoogle(){
+    let provider = new GoogleAuthProvider();
+    let firebaseApp = initializeApp(environment); 
+    let auth = getAuth(firebaseApp);
 
-     this.oAuthService.configure(config);
-     this.oAuthService.setupAutomaticSilentRefresh();
-     this.oAuthService.loadDiscoveryDocumentAndTryLogin();
-   }
+    return signInWithPopup(auth, provider)
+      .then((result) => {
+        this.router.navigate(['/vista-previa']);
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential?.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        console.log(token, user)
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+        return token
+      }).catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        console.log(errorCode);
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        // The email of the user's account used.
+        const email = error.customData.email;
+        console.log(email);
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        console.log(credential)
+        return null
 
-   login(){
-     this.oAuthService.initLoginFlow();
-   }
+      });
+  }
 
-   logout(){
-     this.oAuthService.logOut();
-   }
+  loginisTrue(){
+    this.loginGoogle().then(res => {
+      if (res !== null ){
+        return res
+      }else{
+        return null
+      }
+    })
+   
+    }
 
-   getProfile(){
-     return this.oAuthService.getIdentityClaims;
-   }
- }
+  }
+  
+ 
