@@ -10,8 +10,7 @@ export class NotasService {
     return fetch ('https://keep.googleapis.com/v1/notes', {
       method: 'POST',
       headers:{
-        'Content-Type': "application/json",
-        'Authorization' : `Bearer AIzaSyDg1ZCHv10VY7qs5P1Ld8sAkw0fFL3uMHc`
+        'Content-Type': "application/json"
       },
       body: JSON.stringify({
           "name": contenidoNota.titulo,
