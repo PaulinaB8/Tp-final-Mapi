@@ -1,10 +1,24 @@
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <header>
-    <button>
-      <a [routerLink]="['/menu']" routerLinkActive="active"> menu </a>
+
+
+    <button id="menuButton" (click)="openSidebar()"> 
+      <i class='bx bx-menu'></i> 
     </button>
+
+    <div class="overlay" *ngIf="isSidebarOpen" (click)="closeSidebar()"></div>
+
+    <div [ngClass]="{'open': isSidebarOpen}" id="mySidebar" class="sidebar" >
+      <a href="javascript:void(0)" class="closebtn" (click)="closeSidebar()">
+        <i class='bx bx-x'></i> 
+      </a>
+    </div>
+    
     <a [routerLink]="['/vista-previa']" routerLinkActive="active">
       <img src="src/assets/mapi-logo.png" alt="mapi-logo">
     </a>
+  
     <button (click)="logOut()">Sign Out</button>
+
+    
   </header>

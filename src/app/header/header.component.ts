@@ -1,13 +1,14 @@
 import { Component, inject, Renderer2, ViewChild, ElementRef } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { getAuth, signOut } from "firebase/auth";
+import { CommonModule } from '@angular/common';
 
 
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -28,7 +29,23 @@ export class HeaderComponent {
       });
   }
 
+ // Propiedad para controlar si el sidebar está abierto
+ isSidebarOpen = false;
+
+ // Función para abrir el sidebar
+ openSidebar() {
+   this.isSidebarOpen = true; // Abrimos el sidebar
+ }
+
+ // Función para cerrar el sidebar
+ closeSidebar() {
+   this.isSidebarOpen = false; // Cerramos el sidebar
+ }
+    
+
 }
+
+
 
 
 

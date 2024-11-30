@@ -4,7 +4,6 @@ import { VistaPreviaComponent } from './pages/vista-previa/vista-previa.componen
 import { NotasComponent } from './pages/notas/notas.component';
 import { TodolistComponent } from './pages/todolist/todolist.component';
 import { CalendarioComponent } from './pages/calendario/calendario.component';
-import { MenuComponent } from './menu/menu.component';
 import { AuthGoogleService } from './service/auth.google.service';
 import { inject } from '@angular/core';
 
@@ -48,8 +47,5 @@ export const routes: Routes = [
         path: "calendario", 
         component: CalendarioComponent,
     },
-    {
-        path: "menu",
-        component: MenuComponent,
-    }
+    
 ];
