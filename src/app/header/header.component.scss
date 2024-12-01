@@ -1,63 +1,84 @@
 @use "./../../../public/styles/colores.scss";
+
 #menuButton {
-    font-family: 'Source Code Pro', monospace;
-    font-size: large;
-    padding: 9px;
+    font-size: 40px;
+    padding: 10px;
     cursor: pointer;
-    background-color: #f0f0f0;
     border: none;
-    border-radius: 5px;
+    background: none;
   }
   
   #menuButton:hover {
-    background-color: #d3d3d3; /* Gris claro */
-    color: white;
+    color: #d3d3d3; /* Gris claro */
+    
   }
   
   .sidebar {
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 2; /* Asegura que el sidebar esté encima del overlay */
+    z-index: 2;
     top: 0;
     left: 0;
-    background-color: #333; /* Gris oscuro */
+    background-color: #ffffff;
     overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    color: white;
+    transition: width 0.3s ease-in-out;
+    padding-top: 20px; // Ajuste para alinear
+    color: rgb(0, 0, 0);
+  
+    &.open {
+      width: 250px;
+    }
+  
+    .header-sidebar {
+      display: flex;
+      justify-content:space-around;
+      padding-left: 10px ;
+      padding-right: 10px ;
+      transition: width 0.3s ease-in-out;
+      
+      .nombre-inicio {
+        font-size: 25px;
+        text-decoration: none;
+        font-weight: 500;
+
+      }
+  
+      .closebtn {
+        font-size: 30px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #000000;
+        flex-direction: column;
+      
+      
+        &:hover {
+          color: #d3d3d3; // Gris claro
+        }
+      }
+    }
+    .outbtn {
+      position: absolute;
+      bottom: 20px; 
+      right: 20px;
+      padding: 15px;
+      color: #949393; 
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      text-decoration: underline;
+  
+      &:hover {
+        color: #000000;
+        transform: scale(1.05); /* Efecto de agrandar ligeramente */
+      }
+    }
   }
   
-  .sidebar.open {
-    width: 250px; /* Ancho del sidebar cuando está abierto */
-  }
+   
+    
   
-  .sidebar a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #fff;
-    display: block;
-    transition: 0.3s;
-    font-family: 'Source Code Pro', monospace;
-  }
-  
-  .sidebar a:hover {
-    color: #d3d3d3; /* Gris claro */
-  }
-  
-  .sidebar .closebtn {
-    position: absolute;
-    top: 10px;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-    cursor: pointer;
-  }
-  
-  .sidebar .closebtn:hover {
-    color: #d3d3d3; /* Gris claro */
-  }
   
   /* Estilo del overlay */
   .overlay {
@@ -70,3 +91,6 @@
     z-index: 1; /* Asegura que el overlay esté debajo del sidebar pero encima del contenido */
     transition: 0.3s;
   }
+
+  
+  
