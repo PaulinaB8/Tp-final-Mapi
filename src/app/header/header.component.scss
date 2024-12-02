@@ -1,16 +1,11 @@
 @use "./../../../public/styles/colores.scss";
 
-header {
-  height: 100px;
-}
-
 #menuButton {
     font-size: 40px;
     padding: 10px;
     cursor: pointer;
     border: none;
-    border-radius: 5px;
-    position: absolute; top: 30px; left: 10px;
+    background: none;
   }
   
   #menuButton:hover {
@@ -34,7 +29,7 @@ header {
     &.open {
       width: 250px;
     }
-  
+ 
     .header-sidebar {
       display: flex;
       justify-content:space-around;
@@ -81,7 +76,8 @@ header {
     }
   }
   
-   
+
+  
     
   
   
