@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { Nota, NotaCreada } from '../../interfaces/nota';
 import { FormsModule } from '@angular/forms';
 import { NotasService } from '../../service/notas.service';
+import { HeaderComponent } from '../../header/header.component';
 
 @Component({
   selector: 'app-notas',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, HeaderComponent],
   templateUrl: './notas.component.html',
   styleUrl: './notas.component.scss'
 })
