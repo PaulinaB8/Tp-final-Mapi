@@ -1,0 +1,46 @@
+@use "./../../../../public/styles/colores.scss";
+
+h1{
+    margin-left: 500px;
+}
+#contenido{
+    background-color: colores.$color-contenido;
+    width: 1250px;
+    height: 470px;
+    margin-left: 50px;
+    margin-top: 0px;
+    border-radius: 50px;
+}
+
+#sector-notas{
+    width: 600px;
+    height: 150px;
+    border-bottom: 1px solid colores.$color-borde;
+    margin-left: 50px;
+}
+
+p{
+    font-size: 25px;
+    
+}
+
+.nota{
+    width:150px;
+    height: 80px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    .decoracion-nota{
+        background-color: colores.$color-notas;
+        width: 20px;
+    }
+}
+
+.contenido-nota{
+    background-color: colores.$color-simple;
+    width: 80px;
+}
+
+
+

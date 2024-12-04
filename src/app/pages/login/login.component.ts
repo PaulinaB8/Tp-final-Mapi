@@ -2,7 +2,6 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { AuthGoogleService } from '../../service/auth.google.service';
 
 
 @Component({
@@ -16,13 +15,6 @@ import { AuthGoogleService } from '../../service/auth.google.service';
 
 
 export class LoginComponent {
-
-  auth = inject (AuthGoogleService);
-
-  logIn(){
-    this.auth.loginGoogle();
-    console.log("login")
-  }
 
 
 

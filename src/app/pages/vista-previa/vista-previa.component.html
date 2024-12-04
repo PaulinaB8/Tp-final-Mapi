@@ -4,21 +4,24 @@
 
 <main>
     <h1>Hello Candela ...</h1>
-    <div id="contenido">
-        <div id="notes">
-            <button type="button"></button>
-            
+    <div id="contenido"> 
             <div id="sector-notas" (click)="goNotas()">
                 <p>Notes</p>
                 <div class="nota" (click)="crearNuevaNota()">
-                    <p>Nueva nota</p>
+                    <div class="decoracion-notas"></div>
+                    <div class="contenido-nota"><p>Nueva nota</p></div>
                 </div>
+                <div class="nota">
+                <div class="decoracion-notas"></div>
+                <div class="contenido-nota">
                 @for (note of notes; track $index){
                     <div class="nota">
                         <!-- <p>{{notes.titulo}}</p> -->
                     </div>
                 }
             </div>
+        </div>
+        </div>
             <div id="sector-lista" (click)="goListas()">
                 <p>Lists</p>
                 @for(list of lists; track $index){
@@ -41,6 +44,5 @@
         <div id="calendar">
 
         </div>
-    </div>
 
 </main>
