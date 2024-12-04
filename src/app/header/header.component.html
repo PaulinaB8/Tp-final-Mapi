@@ -1,8 +1,5 @@
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <header>
-  
-    
-     
 
     <button id="menuButton" (click)="openSidebar()"> 
       <i class='bx bx-menu'></i> 
@@ -14,12 +11,12 @@
       
       <div class="header-sidebar">
         <h1 class="nombre-inicio" >Hi, Candela</h1> 
-    <!-- tenemos que hacer que se conecte con el incio de sesion paar que personalice el nombre -->
+   
         <a href="javascript:void(0)" class="closebtn" (click)="closeSidebar()">
           <i class='bx bx-x'></i> 
         </a>
       </div>
-      <a (click)="logOut()" class="outbtn">Sign Out</a>
+      <!-- <a (click)="logOut()" class="outbtn">Sign Out</a> -->
     </div>
     
     <a [routerLink]="['/vista-previa']" routerLinkActive="active">

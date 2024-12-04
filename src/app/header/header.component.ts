@@ -13,21 +13,24 @@ import { CommonModule } from '@angular/common';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+navigateToVistaPrevia() {
+ throw new Error('Method not implemented.');
+ }
   router = inject(Router);
-  auth = getAuth();
+  // auth = getAuth();
 
-  logOut() {
-    signOut(this.auth)
-      .then(() => {
-        console.log('Sesión cerrada con éxito.');
-        setTimeout(() => {
-          this.router.navigate(['/login']); 
-        }, 800); 
-      })
-      .catch((error) => {
-        console.error('Error al cerrar sesión:', error);
-      });
-  }
+  // logOut() {
+  //   signOut(this.auth)
+  //     .then(() => {
+  //       console.log('Sesión cerrada con éxito.');
+  //       setTimeout(() => {
+  //         this.router.navigate(['/login']); 
+  //       }, 800); 
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error al cerrar sesión:', error);
+  //     });
+  // }
 
  // Propiedad para controlar si el sidebar está abierto
  isSidebarOpen = false;
