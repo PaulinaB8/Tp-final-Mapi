@@ -1,27 +1,41 @@
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-<header>
+<header class="header-container">
 
     <button id="menuButton" (click)="openSidebar()"> 
       <i class='bx bx-menu'></i> 
     </button>
+    
+    
+
+    <a [routerLink]="['/vista-previa']" routerLinkActive="active">
+      <img src="assets/mapi-logo.png" alt="mapi-logo" id="mapi-logo">
+    </a>
 
     <div class="overlay" *ngIf="isSidebarOpen" (click)="closeSidebar()"></div>
 
     <div [ngClass]="{'open': isSidebarOpen}" id="mySidebar" class="sidebar" >
       
       <div class="header-sidebar">
-        <h1 class="nombre-inicio" >Hi, Candela</h1> 
+        <h1 id="hello">Hello</h1>
    
         <a href="javascript:void(0)" class="closebtn" (click)="closeSidebar()">
           <i class='bx bx-x'></i> 
         </a>
       </div>
-      <!-- <a (click)="logOut()" class="outbtn">Sign Out</a> -->
+
+      <div class="agregar-notas">
+        <button id="add-notes" (click)="addNotes()">
+          <i class="bx bx-edit edit-task-button"></i> Agregar notas
+        </button>
+      </div>
+
     </div>
+
     
-    <a [routerLink]="['/vista-previa']" routerLinkActive="active">
-      <img src="assets/mapi-logo.png" alt="mapi-logo">
-    </a>
+    
+ 
+    
+    
   
     
 
