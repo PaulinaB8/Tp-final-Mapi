@@ -6,7 +6,7 @@
     <h1>WELCOME</h1>
     <div id="contenido"> 
             <div id="sector-notas" (click)="goNotas()">
-                <p>Notes</p>
+                <p class="titulos">Notes</p>
                 <div class="nota" (click)="crearNuevaNota()">
                     <div class="decoracion-notas"></div>
                     <div class="contenido-nota"><p>Nueva nota</p></div>
@@ -23,7 +23,7 @@
         </div>
         </div>
             <div id="sector-lista" (click)="goListas()">
-                <p>Lists</p>
+                <p class="titulos">Lists</p>
                 @for(list of lists; track $index){
                     <div class="lista">
                         <!-- <p>{{lists.titulo}}</p> -->
@@ -31,7 +31,7 @@
                 }
             </div>
             <div id="sector-calendario" (click)="goCalendar()">
-                <p>Calendar</p>
+                <p class="titulos">Calendar</p>
                 <p>{{mes}}</p>
                 <div id="calendario">
                 </div>
