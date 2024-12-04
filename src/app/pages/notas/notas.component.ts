@@ -1,36 +1,53 @@
 import { Component, inject } from '@angular/core';
-import { Nota, NotaCreada } from '../../interfaces/nota';
 import { FormsModule } from '@angular/forms';
+<<<<<<< HEAD
+import { TareasService } from '../../service/tareas.service';
+import Swal from 'sweetalert2';
+=======
 import { NotasService } from '../../service/notas.service';
+import { HeaderComponent } from '../../header/header.component';
+>>>>>>> ed7127af787fea1f6dbb6b867c1b8dd496c5ee82
 
 @Component({
   selector: 'app-notas',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, HeaderComponent],
   templateUrl: './notas.component.html',
   styleUrl: './notas.component.scss'
 })
 export class NotasComponent {
 
-  nota = inject(NotasService)
+  tareas = inject(TareasService);
 
-  notas: Nota ={
-    titulo:'',
-    texto:''
+  notas: any = {
+           content : '',
+           description : '',
+           creator_id: 1,
   };
 
-  notasCreadas : NotaCreada[]=[];
+  nueva = true;
 
-  crearNota(){
-    this.nota.crearNota(this.notas).then((res)=>{
-      console.log("funciono " + res)
-      }).then(()=>{
-        this.notasCreadas.push({titulo : this.notas.titulo})
-      })
+
+  getNotas(){
+
   }
 
-  retornarInformacionNotas(){
-    localStorage.setItem('lista', JSON.stringify(this.notasCreadas))
-  }
+  guardarNota(){
+    this.tareas.crearNota(this.notas).then(r => {
+      console.log(r);
+      Swal.fire({
+        title: '¡Nota enviada!',
+        text: 'Tu nota se ha guardado',
+        icon: 'success',
+        confirmButtonText: 'Aceptar'
+  })
+})
+}
+
+
+
+
+
+
 
 }
