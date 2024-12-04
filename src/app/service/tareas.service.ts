@@ -16,7 +16,20 @@ export class TareasService {
         body: JSON.stringify(contenido) 
       })
     }
-  
+
+   getNotas(){
+      return fetch('http://localhost:4000').then(r => r.json());
+  }
+
+  borrarNotas(id: number){
+    return fetch('http://localhost:4000/' + id, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json" 
+        }
+    });
+    }
+
   }
     
-
+ 

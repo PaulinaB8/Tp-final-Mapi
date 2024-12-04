@@ -1,12 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-<<<<<<< HEAD
 import { TareasService } from '../../service/tareas.service';
 import Swal from 'sweetalert2';
-=======
-import { NotasService } from '../../service/notas.service';
 import { HeaderComponent } from '../../header/header.component';
->>>>>>> ed7127af787fea1f6dbb6b867c1b8dd496c5ee82
 
 @Component({
   selector: 'app-notas',
@@ -44,10 +40,34 @@ export class NotasComponent {
 })
 }
 
+  borrarNota(id : number){
+      Swal.fire({
+        title: "Quieres borrar la nota?",
+        text: "Una vez borrada ya no podrás acceder a ella",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Aceptar",
+        cancelButtonText: "Cancelar",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.tareas.borrarNota(id).then(r => {
+            Swal.fire({
+              title: "Tarea eliminada",
+              text: "La tarea ha sido eliminada correctamente",
+              icon: "success"
+            });
+          });
+        }
+      });
+    }
+  }
 
 
 
 
 
 
-}
+
+
