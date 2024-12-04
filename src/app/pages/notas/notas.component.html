@@ -1,9 +1,10 @@
 
-    <div>
-        <textarea id="titulo-nota"  placeholder="Nueva nota" [(ngModel)]="notas.titulo"></textarea>
-    </div>
-    <button type="button" id="boton-agregar-nota" (click)="crearNota()" (click)="retornarInformacionNotas()">Guardar la nota</button>
-    <div>
-        <textarea id="contenido-nota" placeholder="Empiece a escribir aquí..." [(ngModel)]="notas.texto"></textarea>
-    </div>
+
+<textarea id="titulo-nota"  placeholder="Nueva nota"  [(ngModel)]="notas.content"></textarea>   
+        
+<button type="button" id="boton-agregar-nota" (click)="guardarNota()">Guardar la nota</button>
+
+
+<textarea id="contenido-nota" placeholder="Empiece a escribir aquí..."  [(ngModel)]="notas.texto"></textarea>        
+
 

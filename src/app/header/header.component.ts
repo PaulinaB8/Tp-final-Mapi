@@ -1,4 +1,4 @@
-import { Component, inject, Renderer2, ViewChild, ElementRef } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { getAuth, signOut } from "firebase/auth";
 import { CommonModule } from '@angular/common';
