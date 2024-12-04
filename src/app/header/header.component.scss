@@ -3,7 +3,8 @@
 display: flex;
 align-items: center; /* Alinea verticalmente los elementos */
 padding: 10px ;
-background-color: #ffffff; /* Fondo del header */
+background-color: #ffffff;
+justify-content: space-between; /* Fondo del header */
 }
 
 

@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TareasService } from '../../service/tareas.service';
 import Swal from 'sweetalert2';
-import { NotasService } from '../../service/notas.service';
 import { HeaderComponent } from '../../header/header.component';
 
 @Component({
