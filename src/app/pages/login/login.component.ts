@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -14,11 +15,13 @@ import { RouterModule } from '@angular/router';
 
 
 
-export class LoginComponent {
 
   
 
-}
+  export class LoginComponent {
+    
+  }
+
 
 
 
