@@ -21,7 +21,7 @@ export class TareasService {
       return fetch('http://localhost:4000').then(r => r.json());
   }
 
-  borrarNotas(id: number){
+  borrarNota(id: number){
     return fetch('http://localhost:4000/' + id, {
         method: "DELETE",
         headers: {

@@ -52,7 +52,7 @@ export class NotasComponent {
         cancelButtonText: "Cancelar",
       }).then((result) => {
         if (result.isConfirmed) {
-          this.tareas.borrarNota(id).then(r => {
+          this.tareas.borrarNota(id).then(() => {
             Swal.fire({
               title: "Tarea eliminada",
               text: "La tarea ha sido eliminada correctamente",
