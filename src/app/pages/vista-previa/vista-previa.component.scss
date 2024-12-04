@@ -1,27 +1,55 @@
 @use "./../../../../public/styles/colores.scss";
 
 h1{
-    margin-left: 500px;
+    text-align: center;
+    margin-top: 10px;
+
 }
 #contenido{
-    background-color: colores.$color-contenido;
+    background-color: colores.$color-container-contenido;
     width: 1250px;
     height: 470px;
-    margin-left: 50px;
-    margin-top: 0px;
+    // margin-left: 50px;
+    // margin-top: 0px;
     border-radius: 50px;
+    display: flex;
+    margin: 0 auto; 
+    margin-top: 50px; 
+    display: flex; 
+    // justify-content: center; 
+    // align-items: center; 
+    
 }
 
 #sector-notas{
-    width: 600px;
-    height: 150px;
+    width: 800px;
+    height: 250px;
     border-bottom: 1px solid colores.$color-borde;
+    margin-left: 10px;
     margin-left: 50px;
+    
+}
+
+#sector-lista{
+    width: 200px;
+    height: 470px;
+    border-left: 1px solid colores.$color-borde;
+    // margin-left: 50px;
+    padding-left: 50px;
+}
+
+#sector-calendario{
+    display: inline-block;
+    width: 800px;
+    height: 300px;
+    margin-left: 50px;
+    position: absolute; top: 450px; left: 130px;
 }
 
 p{
     font-size: 25px;
-    
+    cursor: pointer;
+
 }
 
 .nota{
@@ -33,7 +61,8 @@ p{
     flex-direction: column;
     .decoracion-nota{
         background-color: colores.$color-notas;
-        width: 20px;
+        width: 150px;
+        height: 20px;
     }
 }
 
