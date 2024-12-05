@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   standalone: true,
   imports: [HeaderComponent, FormsModule],
   templateUrl: './nota-existente.component.html',
-  styleUrl: './nota-existente.component.css'
+  styleUrl: './nota-existente.component.scss'
 })
 export class NotaExistenteComponent implements OnInit{
   tareas = inject(TareasService);

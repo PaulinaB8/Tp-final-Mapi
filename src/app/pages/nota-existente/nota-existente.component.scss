@@ -55,32 +55,3 @@
 #boton-agregar-nota:hover {
     color: #45a049; /* Verde más oscuro al pasar el mouse */
 }
-
-
-/* Oculta el tooltip por defecto del navegador */
-#boton-agregar-nota[title] {
-    position: relative;
-    transition: opacity 0.2s ease-in-out;
-}
-
-#boton-agregar-nota[title]:hover::after {
-    content: attr(title); /* Muestra el contenido del atributo title */
-    position: absolute;
-    top: -30px; /* Ajusta la posición del tooltip */
-    right: 0;
-    background-color: #333; /* Fondo oscuro */
-    color: #fff; /* Texto blanco */
-    padding: 4px 8px;
-    font-size: 10px;
-    border-radius: 4px;
-    white-space: nowrap; /* Evita que el texto se parta en varias líneas */
-    z-index: 10;
-    opacity: 1; /* Hace que el tooltip sea visible */
-    pointer-events: none; /* Evita que el mouse interactúe con el tooltip */
-    transition: opacity 0.2s ease-in-out;
-}
-
-
-
-
-
