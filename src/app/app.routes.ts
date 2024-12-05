@@ -4,6 +4,7 @@ import { VistaPreviaComponent } from './pages/vista-previa/vista-previa.componen
 import { NotasComponent } from './pages/notas/notas.component';
 import { TodolistComponent } from './pages/todolist/todolist.component';
 import { CalendarioComponent } from './pages/calendario/calendario.component';
+import { NotaExistenteComponent } from './pages/nota-existente/nota-existente.component';
 
 
 
@@ -25,6 +26,10 @@ export const routes: Routes = [
     {
         path: "notas", 
         component: NotasComponent,
+    },
+    {
+        path: "nota-existente", 
+        component: NotaExistenteComponent,
     },
     {
         path: "todolist", 

@@ -18,7 +18,8 @@ export class TareasService {
     }
 
    getNotas(){
-      return fetch('http://localhost:4000').then(r => r.json());
+      return fetch('http://localhost:4000')
+      .then(r => r.json());
   }
 
   borrarNota(id: number){
@@ -28,6 +29,11 @@ export class TareasService {
             "Content-Type": "application/json" 
         }
     });
+    }
+
+    getNotaById(id : number){
+      return fetch('http://localhost:4000/' + id)
+      .then(r => r.json());
     }
 
   }
