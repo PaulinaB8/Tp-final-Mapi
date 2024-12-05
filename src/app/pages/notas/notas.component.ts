@@ -20,13 +20,8 @@ export class NotasComponent {
            description : '',
            creator_id: 1,
   };
+  id = 0;
 
-  nueva = true;
-
-
-  getNotas(){
-
-  }
 
   guardarNota(){
     this.tareas.crearNota(this.notas).then(r => {
@@ -37,31 +32,10 @@ export class NotasComponent {
         icon: 'success',
         confirmButtonText: 'Aceptar'
   })
+  this.tareas.getNotas();
 })
 }
 
-  borrarNota(id : number){
-      Swal.fire({
-        title: "Quieres borrar la nota?",
-        text: "Una vez borrada ya no podrás acceder a ella",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Aceptar",
-        cancelButtonText: "Cancelar",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          this.tareas.borrarNota(id).then(() => {
-            Swal.fire({
-              title: "Tarea eliminada",
-              text: "La tarea ha sido eliminada correctamente",
-              icon: "success"
-            });
-          });
-        }
-      });
-    }
   }
 
 
