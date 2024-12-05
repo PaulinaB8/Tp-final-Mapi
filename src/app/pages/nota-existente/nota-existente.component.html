@@ -2,8 +2,8 @@
     <app-header></app-header>
 </header>
 
-<textarea id="titulo-nota"  placeholder="Nueva nota"  [(ngModel)]="notas.content"></textarea>   
+<textarea id="titulo-nota"  placeholder="Nueva nota"  [(ngModel)]="nota.content"></textarea>   
         
 <button type="button" id="boton-agregar-nota" (click)="guardarNota()">Guardar la nota</button>
 <button type="button" id="boton-eliminar" >Eliminar nota</button>
-<textarea id="contenido-nota" placeholder="Empiece a escribir aquí..."  [(ngModel)]="notas.texto"></textarea>        
+<textarea id="contenido-nota" placeholder="Empiece a escribir aquí..."  [(ngModel)]="nota.texto"></textarea>        

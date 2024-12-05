@@ -18,21 +18,19 @@ export class NotasComponent {
   notas: any = {
            content : '',
            description : '',
-           creator_id: 1,
   };
-  id = 0;
-
+  id= 0;
 
   guardarNota(){
     this.tareas.crearNota(this.notas).then(r => {
       console.log(r);
       Swal.fire({
-        title: '¡Nota enviada!',
-        text: 'Tu nota se ha guardado',
+        title: '¡Nota guardada!',
+        text: 'Tu nota se ha guardado correctamente',
         icon: 'success',
         confirmButtonText: 'Aceptar'
-  })
-  this.tareas.getNotas();
+  }) 
+
 })
 }
 

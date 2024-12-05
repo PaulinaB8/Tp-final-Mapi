@@ -88,7 +88,7 @@ for (let item of r) {
 }
 
   verNota(id : number){
-    this.router.navigate(['/nota-existente', id]);
+    this.router.navigate(['/nota-existente']);
 
 }
 

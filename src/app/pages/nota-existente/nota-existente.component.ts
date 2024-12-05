@@ -42,7 +42,6 @@ export class NotaExistenteComponent implements OnInit{
         icon: 'success',
         confirmButtonText: 'Aceptar'
   })
-  this.tareas.getNotas();
 })
 }
 borrarNota(){
