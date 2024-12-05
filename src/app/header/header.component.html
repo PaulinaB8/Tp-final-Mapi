@@ -29,6 +29,12 @@
         </button>
       </div>
 
+      <div class="notas-existentes">
+        <p>Notas existentes:</p>
+          @for(nota of notasExistentes; track $index){
+            <button class="nota-existente" (click) = "verNota(nota.id)">{{nota.content}}</button>
+          }
+      </div>
     </div>
 
     
