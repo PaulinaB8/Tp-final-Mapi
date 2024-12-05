@@ -31,11 +31,20 @@ export class TareasService {
     });
     }
 
-    getNotaById(id : number){
-      return fetch('http://localhost:4000/' + id)
+    getNotaById(id : number): Promise<Nota>{
+       return fetch('http://localhost:4000/' + id)
       .then(r => r.json());
-    }
+      }
 
+    editarNota(nota : Nota){
+      return fetch('http://localhost:4000/' + nota.id, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json" 
+        },
+        body: JSON.stringify(nota) 
+    });
+    }
   }
     
  

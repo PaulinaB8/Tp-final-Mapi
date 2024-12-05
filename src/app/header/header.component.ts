@@ -31,8 +31,8 @@ navigateToVistaPrevia() {
   this.notasExistentes = [];
   this.notas.getNotas().then(r => {
     let nota: Nota;
-    console.log(r)
-    console.log(r.length);
+    // console.log(r)
+    // console.log(r.length);
 for (let item of r) { 
   nota = {
     id: item.id,
@@ -60,7 +60,7 @@ for (let item of r) {
     duration: item.duration,
     deadline: item.deadline,
   }
-  console.log(nota)
+  // console.log(nota)
   this.notasExistentes.push(nota) 
 }
 });
@@ -87,7 +87,8 @@ for (let item of r) {
   // Agrega la funcionalidad aquí (navegación, abrir modal, etc.)
 }
 
-  verNota(id : number){
+  verNota(id: number){
+    localStorage.setItem('id', id.toString())
     this.router.navigate(['/nota-existente']);
 
 }

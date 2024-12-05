@@ -27,5 +27,6 @@ export interface Nota {
 }
 
 export interface NotaCreada {
-    titulo: string
+    content: string;
+    description: string;
 }

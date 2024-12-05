@@ -57,8 +57,8 @@ export class VistaPreviaComponent implements OnInit{
      this.notes = [];
      this.tareas.getNotas().then(r => {
       let nota: Nota;
-      console.log(r)
-      console.log(r.length);
+      // console.log(r)
+      // console.log(r.length);
   for (let item of r) { //r es array
     nota = {
       id: item.id,
