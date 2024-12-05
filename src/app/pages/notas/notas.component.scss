@@ -1,17 +1,62 @@
-#titulo-nota{
-    border: white;
+#titulo-nota {
+    border: none;
+    outline: none; /* Evita que los bordes se pongan negros al escribir */
     width: 600px;
     font-size: 40px;
-    margin-left: 230px;
-    margin-top: 60px;
+    margin: 30px;
+    display: block;
+    text-align: center;
+    background-color: #ffffff; /* Fondo blanco para el título */
+    resize: none;
+    font-family: 'Arial', sans-serif; /* Fuente personalizada */
 }
 
-#contenido-nota{
-    border: white;
+.nota-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    flex-direction: column;
+    align-items: center;
+}
+
+.nota-content-container {
+    position: relative;
     width: 850px;
-    font-size: 20px;
-    height: 800px;
-    background-color: beige;
-    margin-left: 230px;
-
 }
+
+#contenido-nota {
+    border: none;
+    outline: none; /* Evita que los bordes se pongan negros al escribir */
+    width: 80%;
+    font-size: 20px;
+    height: 400px; /* Ajusta la altura del área de texto */
+    border-radius: 10px;
+    background-color: #f9f3c1; /* Fondo amarillo pastel */
+    margin-top: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    resize: none;
+    font-family: 'Arial', sans-serif; /* Fuente personalizada */
+}
+
+#boton-agregar-nota {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    background: none; /* Sin fondo */
+    color: #4CAF50; /* Color verde para el texto del botón */
+}
+
+#boton-agregar-nota:hover {
+    color: #45a049; /* Verde más oscuro al pasar el mouse */
+}
+
+
+
+
+

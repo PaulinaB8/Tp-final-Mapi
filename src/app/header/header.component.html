@@ -6,6 +6,7 @@
     </button>
     
     
+    
 
     <a [routerLink]="['/vista-previa']" routerLinkActive="active">
       <img src="assets/mapi-logo.png" alt="mapi-logo" id="mapi-logo">
@@ -31,19 +32,13 @@
 
       <div class="notas-existentes">
         <p>Notas existentes:</p>
+        <div class="notas-container">
           @for(nota of notasExistentes; track $index){
             <button class="nota-existente" (click) = "verNota(nota.id)">{{nota.content}}</button>
           }
+        </div>
       </div>
     </div>
 
-    
-    
- 
-    
-    
-  
-    
 
-    
   </header>
