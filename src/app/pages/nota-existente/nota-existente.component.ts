@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnChanges, OnInit } from '@angular/core';
 import { TareasService } from '../../service/tareas.service';
 import Swal from 'sweetalert2';
 import { HeaderComponent } from '../../header/header.component';
@@ -27,8 +27,8 @@ export class NotaExistenteComponent implements OnInit{
     section_id: null,
     parent_id: null,
     order: 0,
-    content: ',', 
-    description: ',',
+    content: '', 
+    description: '',
     is_completed: false,
     labels: [''],
     priority: 0,
@@ -92,8 +92,8 @@ borrarNota(){
       console.log(this.nota)
       }
     })
-      
     }
+
   }
 
 

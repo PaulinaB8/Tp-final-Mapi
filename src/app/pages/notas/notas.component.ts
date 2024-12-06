@@ -4,6 +4,8 @@ import { TareasService } from '../../service/tareas.service';
 import Swal from 'sweetalert2';
 import { HeaderComponent } from '../../header/header.component';
 import { Router } from '@angular/router';
+import { Nota } from '../../interfaces/nota';
+import { HeaderService } from '../../service/header';
 
 @Component({
   selector: 'app-notas',
@@ -16,10 +18,34 @@ export class NotasComponent {
 
   tareas = inject(TareasService);
   router = inject(Router);
+  header = inject(HeaderService);
 
-  notas: any = {
-           content : '',
-           description : '',
+  notas: Nota = {
+    id: 0,
+    assigner_id: null,
+    assignee_id: null,
+    project_id: 0,
+    section_id: null,
+    parent_id: null,
+    order: 0,
+    content: '',
+    description: '',
+    is_completed: false,
+    labels: [],
+    priority: 0,
+    comment_count: 0,
+    creator_id: 0,
+    created_at: '',
+    due: {
+      date: '',
+      string: '',
+      lang: '',
+      is_recurring: false,
+    },
+    url: '',
+    duration: null,
+    deadline: null,
+    isMarked: false,
   };
 
   guardarNota(){
@@ -31,7 +57,8 @@ export class NotasComponent {
         icon: 'success',
         confirmButtonText: 'Aceptar'
   }) 
-  localStorage.setItem('id', this.notas.id);
+  this.header.getNotas();
+  localStorage.setItem('id', this.notas.id.toString());
   this.router.navigate(['/nota-existente']);
 
 })
