@@ -3,13 +3,15 @@ import { Nota } from '../../interfaces/nota';
 import { Router, RouterModule } from '@angular/router';
 import { HeaderComponent } from '../../header/header.component';
 import { TareasService } from '../../service/tareas.service';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 
 @Component({
   selector: 'app-vista-previa',
   standalone: true,
-  imports: [HeaderComponent, RouterModule],
+  imports: [HeaderComponent, RouterModule,MatDatepickerModule, MatNativeDateModule],
   templateUrl: './vista-previa.component.html',
   styleUrl: './vista-previa.component.scss'
 })
