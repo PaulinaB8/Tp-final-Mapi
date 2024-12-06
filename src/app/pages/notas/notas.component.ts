@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { TareasService } from '../../service/tareas.service';
 import Swal from 'sweetalert2';
 import { HeaderComponent } from '../../header/header.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-notas',
@@ -14,12 +15,12 @@ import { HeaderComponent } from '../../header/header.component';
 export class NotasComponent {
 
   tareas = inject(TareasService);
+  router = inject(Router);
 
   notas: any = {
            content : '',
            description : '',
   };
-  id= 0;
 
   guardarNota(){
     this.tareas.crearNota(this.notas).then(r => {
@@ -30,6 +31,8 @@ export class NotasComponent {
         icon: 'success',
         confirmButtonText: 'Aceptar'
   }) 
+  localStorage.setItem('id', this.notas.id);
+  this.router.navigate(['/nota-existente']);
 
 })
 }

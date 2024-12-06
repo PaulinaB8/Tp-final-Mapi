@@ -5,24 +5,17 @@
 <main>
     <h1>WELCOME</h1>
     <div id="contenido"> 
-            <div id="sector-notas" (click)="goNotas()">
+            <div id="sector-notas">
                 <p class="titulos">Notes</p>
-                <div class="nota" (click)="crearNuevaNota()">
-                    <div class="decoracion-notas"></div>
-                    <div class="contenido-nota"><p>Nueva nota</p></div>
-                </div>
-                <div class="nota">
-                <div class="decoracion-notas"></div>
-                <div class="contenido-nota">
-                @for (note of notes; track $index){
-                    <div class="nota">
-                        <!-- <p>{{notes.titulo}}</p> -->
-                    </div>
+                <div id="espacio-notas">
+                    <div class="contenido-nota" [routerLink]="['/notas']"><p>Nueva nota</p></div>
+                @for (note of notasExistentes; track $index){
+                        <div class="contenido-nota" (click)="verNota(note.id)">{{note.content}}</div>
                 }
             </div>
+        
         </div>
-        </div>
-            <div id="sector-lista" (click)="goListas()">
+            <div id="sector-lista" [routerLink]="['/todolist']">
                 <p class="titulos">Lists</p>
                 <!-- @for(list of lists; track $index){
                     <div class="lista">
@@ -30,19 +23,11 @@
                     <!-- </div>
                 } --> 
             </div>
-            <div id="sector-calendario" (click)="goCalendar()">
+            <div id="sector-calendario" [routerLink]="['/calendario']">
                 <p class="titulos">Calendar</p>
                 <p>{{mes}}</p>
                 <div id="calendario">
                 </div>
             </div>
-            
-        </div>
-        <div id="to-do-list">
-
-        </div>
-        <div id="calendar">
-
-        </div>
-
-</main>
+            </div>
+        </main>

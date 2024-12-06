@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Nota } from '../../interfaces/nota';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { HeaderComponent } from '../../header/header.component';
 import { TareasService } from '../../service/tareas.service';
 
@@ -9,16 +9,17 @@ import { TareasService } from '../../service/tareas.service';
 @Component({
   selector: 'app-vista-previa',
   standalone: true,
-  imports: [HeaderComponent],
+  imports: [HeaderComponent, RouterModule],
   templateUrl: './vista-previa.component.html',
   styleUrl: './vista-previa.component.scss'
 })
 export class VistaPreviaComponent implements OnInit{
 
   router = inject(Router);
-  tareas = inject(TareasService);
+  notas = inject(TareasService);
 
-  notes : Nota[] = [];
+  notasExistentes : Nota[] = [];
+  nota: Nota [] = [];
 
 
   mes = "";
@@ -31,35 +32,16 @@ export class VistaPreviaComponent implements OnInit{
       year:"numeric",
     })
     this.mes = mes;
-
     this.getNotas()
   }
 
-  goNotas(){
-    this.router.navigate(['/notas']);
-  }
-
-  goListas(){
-    this.router.navigate(['/todolist']);
-  }
-
-  goCalendar(){
-    this.router.navigate(['/calendario']);
-  }
-
-  crearNuevaNota(){
-    this.router.navigate(['/notas']);
-  }
-
-
-
   getNotas(){
-     this.notes = [];
-     this.tareas.getNotas().then(r => {
+    this.notasExistentes = [];
+    this.notas.getNotas().then(r => {
       let nota: Nota;
       // console.log(r)
       // console.log(r.length);
-  for (let item of r) { //r es array
+  for (let item of r) { 
     nota = {
       id: item.id,
       assigner_id: item.assigner_id,
@@ -77,8 +59,8 @@ export class VistaPreviaComponent implements OnInit{
       creator_id: item.creator_id,
       created_at: item.created_at,
       due: {
-        date: item?.due?.date, //el punto accede a la propiedad del objeto
-        string: item?.due?.string, //ponemos ? porque no sabemos si viene definido el dato. puede venir null/undefined
+        date: item?.due?.date, 
+        string: item?.due?.string, 
         lang: item?.due?.lang,
         is_recurring: item?.due?.is_recurring,
       },
@@ -86,11 +68,15 @@ export class VistaPreviaComponent implements OnInit{
       duration: item.duration,
       deadline: item.deadline,
     }
-    this.notes.push(nota) //todo es objeto. llena el array
-    console.log (this.notes)
+    // console.log(nota)
+    this.notasExistentes.push(nota) 
   }
-});
-}
+  });
+  }
 
+  verNota(id:number){
+    localStorage.setItem('id', id.toString())
+    this.router.navigate(['/nota-existente']);
+    }
+  }
 
-}

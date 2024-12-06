@@ -74,5 +74,9 @@ p{
     width: 80px;
 }
 
-
+#espacio-notas{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
 
