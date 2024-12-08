@@ -4,14 +4,15 @@
 
 
 <div class="nota-container">
-    <textarea id="titulo-nota"  placeholder="Nueva nota"  [(ngModel)]="notas.content"></textarea>   
+    <textarea id="titulo-nota"  placeholder="Titulo"  [(ngModel)]="notas.content"></textarea>   
 
-    <div class="nota-content-container">
-        <button type="button" id="boton-agregar-nota" (click)="guardarNota()" title="Agregar notas">
-            <i class='bx bx-list-check'></i>
-        </button>
-    </div>
+    
 
     <textarea id="contenido-nota" placeholder="Empiece a escribir aquí..."  [(ngModel)]="notas.description"></textarea>        
 
+    <div class="nota-content-container">
+        <button type="button" id="boton-agregar-nota" (click)="guardarNota()">
+            Guardar nota
+        </button>
+    </div>
 </div>

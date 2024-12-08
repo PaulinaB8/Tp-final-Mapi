@@ -30,6 +30,12 @@
         </button>
       </div>
 
+      <div class="calendario">
+      <a [routerLink]="['/calendario']" class="link-calendario">
+        <i class="bx bx-calendar"></i> Calendario
+      </a>
+      </div>
+      
       <div class="notas-existentes">
         <p>Notas existentes:</p>
         <div class="notas-container">
@@ -37,6 +43,12 @@
             <button class="nota-existente" (click) = "verNota(nota.id)">{{nota.content}}</button>
           }
         </div>
+
+       
+         
+     
+
+
       </div>
     </div>
 

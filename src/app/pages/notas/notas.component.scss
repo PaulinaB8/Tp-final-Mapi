@@ -1,14 +1,20 @@
+@use "./../../../../public/styles/colores.scss";
 #titulo-nota {
     border: none;
     outline: none; /* Evita que los bordes se pongan negros al escribir */
     width: 600px;
     font-size: 40px;
     margin: 30px;
+    margin-bottom: 5px;
     display: block;
     text-align: center;
     background-color: #ffffff; /* Fondo blanco para el título */
     resize: none;
     font-family: 'Arial', sans-serif; /* Fuente personalizada */
+}
+ 
+textarea{
+    color: #000000;
 }
 
 .nota-container {
@@ -20,8 +26,10 @@
 }
 
 .nota-content-container {
-    position: relative;
-    width: 850px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    
 }
 
 #contenido-nota {
@@ -29,58 +37,36 @@
     outline: none; /* Evita que los bordes se pongan negros al escribir */
     width: 80%;
     font-size: 20px;
-    height: 400px; /* Ajusta la altura del área de texto */
+    height: 500px; /* Ajusta la altura del área de texto */
     border-radius: 10px;
-    background-color: #f9f3c1; /* Fondo amarillo pastel */
-    margin-top: 20px;
+    background-color: colores.$color-notas; /* Fondo amarillo pastel */
+    margin-bottom: 20px;
     padding: 20px;
     box-sizing: border-box;
     resize: none;
     font-family: 'Arial', sans-serif; /* Fuente personalizada */
 }
 
+/* Botón Guardar Nota con estilo moderno */
 #boton-agregar-nota {
-    position: absolute;
-    top: -10px;
-    right: 10px;
-    font-size: 30px;
-    font-weight: bold;
-    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px; /* Bordes redondeados */
+    border: none; 
     cursor: pointer;
-    padding: 10px;
-    background: none; /* Sin fondo */
-    color: #4CAF50; /* Color verde para el texto del botón */
-}
-
-#boton-agregar-nota:hover {
-    color: #45a049; /* Verde más oscuro al pasar el mouse */
-}
-
-
-/* Oculta el tooltip por defecto del navegador */
-#boton-agregar-nota[title] {
-    position: relative;
-    transition: opacity 0.2s ease-in-out;
-}
-
-#boton-agregar-nota[title]:hover::after {
-    content: attr(title); /* Muestra el contenido del atributo title */
-    position: absolute;
-    top: -30px; /* Ajusta la posición del tooltip */
-    right: 0;
-    background-color: #333; /* Fondo oscuro */
-    color: #fff; /* Texto blanco */
-    padding: 4px 8px;
-    font-size: 10px;
-    border-radius: 4px;
-    white-space: nowrap; /* Evita que el texto se parta en varias líneas */
-    z-index: 10;
-    opacity: 1; /* Hace que el tooltip sea visible */
-    pointer-events: none; /* Evita que el mouse interactúe con el tooltip */
-    transition: opacity 0.2s ease-in-out;
-}
-
-
+    background: linear-gradient(135deg, colores.$color-notas, #ffff7c); /* Degradado atractivo */
+    color: #555555; /* Contraste claro con el fondo */
+    padding: 12px 20px; /* Espaciado interno */
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    transition: all 0.3s ease; /* Transición suave */
+  }
+  
+  /* Efecto hover con iluminación al pasar el mouse */
+  #boton-agregar-nota:hover {
+    transform: translateY(-2px); /* Sutil efecto de elevación */
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.3); /* Aumentar la sombra en hover */
+    background: linear-gradient(135deg, #fbf54e, #ffff3a); /* Cambio sutil de degradado */
+  }
 
 
 

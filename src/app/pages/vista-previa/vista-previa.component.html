@@ -5,15 +5,26 @@
 <main>
     <h1>WELCOME</h1>
     <div id="contenido"> 
+
+        <div id="sector-notas-y-calendario">
             <div id="sector-notas">
                 <p class="titulos">Notes</p>
-                <div id="espacio-notas">
+                <div id="espacio-notas" class="scroll-container">
                     <div class="contenido-nota" [routerLink]="['/notas']"><p>Nueva nota</p></div>
                 @for (note of notasExistentes; track $index){
                         <div class="contenido-nota" (click)="verNota(note.id)">{{note.content}}</div>
                 }
             </div>
         
+        </div>
+           
+            <div id="sector-calendario" [routerLink]="['/calendario']">
+                <p class="titulos">Calendar</p>
+                    <section id="calendario" style = 'width : 200px'>
+                        <mat-calendar></mat-calendar>
+                    </section>
+            </div>
+
         </div>
             <div id="sector-lista" [routerLink]="['/todolist']">
                 <p class="titulos">Lists</p>
@@ -22,13 +33,6 @@
                         <! <p>{{lists.titulo}}</p> -->
                     <!-- </div>
                 } --> 
-            </div>
-            <div id="sector-calendario" [routerLink]="['/calendario']">
-                <p class="titulos">Calendar</p>
-                <p>{{mes}}</p>
-                    <section id="calendario" style = 'width : 200px'>
-                        <mat-calendar></mat-calendar>
-                    </section>
             </div>
             </div>
         </main>

@@ -1,12 +1,13 @@
+@use "./../../../../public/styles/colores.scss";
 #titulo-nota {
     border: none;
-    outline: none; /* Evita que los bordes se pongan negros al escribir */
+    outline: none;
     width: 600px;
     font-size: 40px;
-    margin: 30px;
+    margin: 30px auto 20px; 
     display: block;
     text-align: center;
-    background-color: #ffffff; /* Fondo blanco para el título */
+    background-color: #ffffff; /* Fondo blanco */
     resize: none;
     font-family: 'Arial', sans-serif; /* Fuente personalizada */
 }
@@ -14,72 +15,110 @@
 .nota-container {
     width: 100%;
     display: flex;
-    justify-content: center; /* Centers the content horizontally */
     flex-direction: column;
     align-items: center;
+    margin-bottom: 20px;
+
+    #contenido-nota {
+        border: none;
+        outline: none; /* Evita que los bordes se pongan negros al escribir */
+        width: 80%;
+        font-size: 20px;
+        height: 500px; /* Ajusta la altura del área de texto */
+        border-radius: 10px;
+        background-color: colores.$color-notas; /* Fondo amarillo pastel */
+        margin-bottom: 20px;
+        padding: 20px;
+        box-sizing: border-box;
+        resize: none;
+        font-family: 'Arial', sans-serif;  /* Fuente personalizada */
+    }
+    
 }
 
 .nota-content-container {
-    position: relative;
-    width: 850px;
-}
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espacio entre botones */
+    margin-bottom: 20px;
 
-#contenido-nota {
-    border: none;
-    outline: none; /* Evita que los bordes se pongan negros al escribir */
-    width: 80%;
-    font-size: 20px;
-    height: 400px; /* Ajusta la altura del área de texto */
-    border-radius: 10px;
-    background-color: #f9f3c1; /* Fondo amarillo pastel */
-    margin-top: 20px;
-    padding: 20px;
-    box-sizing: border-box;
-    resize: none;
-    font-family: 'Arial', sans-serif; /* Fuente personalizada */
-}
+    #boton-eliminar-nota{
+        background: linear-gradient(135deg, #e74c3c, #c0392b); /* Color rojo con gradiente */
+        color: #fff;
+        font-size: 20px;
+        border-radius: 8px;
+        border: none;
+        position: relative;
+        padding: 10px ;
+        box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
 
-#boton-agregar-nota {
-    position: absolute;
-    top: -10px;
-    right: 10px;
-    font-size: 30px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    background: none; /* Sin fondo */
-    color: #4CAF50; /* Color verde para el texto del botón */
-}
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+            &::after {
+                content: "Eliminar Nota";
+                position: absolute;
+                top: 50%;
+                right: -230%; /* Posición a la derecha */
+                transform: translateY(-50%);
+                background-color: #555;
+                color: #fff;
+                padding: 4px 8px;
+                font-size: 12px;
+                border-radius: 4px;
+                white-space: nowrap;
+                z-index: 10;
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+                opacity: 0;
+                transition: opacity 0.2s ease-in-out;
+              }
+            
+              &:hover::after {
+                opacity: 1; /* Aparece el tooltip al hacer hover */
+              }
+        }
+    }
 
-#boton-agregar-nota:hover {
-    color: #45a049; /* Verde más oscuro al pasar el mouse */
-}
+   #boton-actualizar-nota{
+        background: linear-gradient(135deg, #b3ff66, #95ff53); /* Degradado moderno */
+        color: #fff;
+        font-size: 20px;
+        border-radius: 8px;
+        border: none;
+        padding: 10px;
+        
+        box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+        &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
 
-#boton-agregar-nota:hover {
-    color: #45a049; /* Verde más oscuro al pasar el mouse */
-  }
-  
-  
-  /* Oculta el tooltip por defecto del navegador */
-  #boton-agregar-nota[title] {
-    position: relative;
-    transition: opacity 0.2s ease-in-out;
-  }
-  
-  #boton-agregar-nota[title]:hover::after {
-    content: attr(title); /* Muestra el contenido del atributo title */
-    position: absolute;
-    top: -30px; /* Ajusta la posición del tooltip */
-    right: 0;
-    background-color: #333; /* Fondo oscuro */
-    color: #fff; /* Texto blanco */
-    padding: 4px 8px;
-    font-size: 10px;
-    border-radius: 4px;
-    white-space: nowrap; /* Evita que el texto se parta en varias líneas */
-    z-index: 10;
-    opacity: 1; /* Hace que el tooltip sea visible */
-    pointer-events: none; /* Evita que el mouse interactúe con el tooltip */
-    transition: opacity 0.2s ease-in-out;
-  }
+        &::after {
+            content: "Guardar Cambios";
+            position: absolute;
+            top: 50%;
+            left: -280%; /* Posición a la izquierda */
+            transform: translateY(-50%);
+            background-color: #555;
+            color: #fff;
+            padding: 4px 8px;
+            font-size: 12px;
+            border-radius: 4px;
+            white-space: nowrap;
+            z-index: 10;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+          }
+        
+          &:hover::after {
+            opacity: 1; /* Aparece el tooltip al hacer hover */
+          }
+        }
+
+   }
+}

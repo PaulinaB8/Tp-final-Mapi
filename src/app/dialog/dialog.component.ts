@@ -5,6 +5,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { NgxColorsModule } from 'ngx-colors';
+import { HeaderComponent } from '../header/header.component';
 
 import {
   MAT_DIALOG_DATA,
@@ -39,6 +40,7 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     MatIconModule,
     NgxColorsModule,
+    HeaderComponent
 ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './dialog.component.html',

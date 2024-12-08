@@ -1,82 +1,134 @@
 @use "./../../../../public/styles/colores.scss";
 
-h1{
-    text-align: center;
-    margin: 0px;
-
-}
-#contenido{
+/* Contenedor general */
+#contenido {
     background-color: colores.$color-container-contenido;
     width: 1250px;
-    height: 470px;
-    // margin-left: 50px;
-    // margin-top: 0px;
-    border-radius: 50px;
-    display: flex;
-    margin: 0 auto; 
-    margin-top: 50px; 
-    display: flex; 
-    // justify-content: center; 
-    // align-items: center; 
-    
-}
-
-#sector-notas{
-    width: 800px;
-    height: 250px;
-    border-bottom: 1px solid colores.$color-borde;
-    margin-left: 10px;
-    margin-left: 50px;
-    
-}
-
-#sector-lista{
-    width: 200px;
-    height: 470px;
-    border-left: 1px solid colores.$color-borde;
-    // margin-left: 50px;
-    padding-left: 50px;
-}
-
-#sector-calendario{
-    display: inline-block;
-    width: 800px;
-    height: 300px;
-    margin-left: 50px;
-    position: absolute; top: 450px; left: 130px;
-}
-
-p{
-    font-size: 25px;
-    cursor: pointer;
-
-}
-.titulos{
-    font-weight: bold;
-}
-
-.nota{
-    width:150px;
-    height: 80px;
+    height: 600px;
+    margin: 50px auto;
     border-radius: 20px;
     display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    .decoracion-nota{
-        background-color: colores.$color-notas;
-        width: 150px;
-        height: 20px;
+    gap: 20px;
+    padding: 20px;
+  
+    /* Sección Notas y Calendario */
+    #sector-notas-y-calendario {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+  
+      /* Notas */
+      #sector-notas {
+        flex: 1;
+        border-bottom: 1px solid colores.$color-borde;
+        position: relative;
+        overflow: hidden;
+  
+        .titulos {
+          font-size: 20px;
+          font-weight: bold;
+          margin-bottom: 10px;
+          padding-left: 35px;
+        }
+  
+        #espacio-notas {
+          display: flex;
+          overflow-x: auto;
+          gap: 16px;
+          max-width: 800px; /* Igual al sector de calendario */
+          padding: 10px;
+          scroll-snap-type: x mandatory;
+          position: relative;
+  
+          /* Ocultar barra de scroll */
+          &::-webkit-scrollbar {
+            display: none;
+          }
+  
+          .contenido-nota {
+            flex: 0 0 auto;
+            width: 150px;
+            height: 100px;
+            border-radius: 10px;
+            background-color: colores.$color-simple;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            scroll-snap-align: start;
+            cursor: pointer;
+  
+            &:hover {
+              transform: scale(1.05);
+              transition: transform 0.3s ease;
+            }
+  
+            /* Títulos en negrita dentro de las notas */
+            p {
+              font-weight: bold;
+              text-align: center;
+            }
+          }
+        }
+  
+        /* Efecto borroso en los bordes del scroll */
+        &:before,
+        &:after {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 50px;
+          background: linear-gradient(
+            to left,
+            transparent,
+            colores.$color-container-contenido
+          );
+          z-index: 1;
+        }
+        &:after {
+          right: 0;
+          transform: rotateY(180deg);
+        }
+      }
+  
+      /* Calendario */
+      #sector-calendario {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+  
+        .titulos {
+          font-size: 20px;
+          font-weight: bold;
+          margin-bottom: 10px;
+          padding-left: 35px;
+        }
+  
+        #calendario {
+          width: 100%;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+      }
     }
-}
-
-.contenido-nota{
-    background-color: colores.$color-simple;
-    width: 80px;
-}
-
-#espacio-notas{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-}
-
+  
+    /* Sección Listas */
+    #sector-lista {
+      flex: 1;
+      padding: 20px;
+  
+      
+    }
+  }
+  
+  /* Título principal */
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+  }
+  

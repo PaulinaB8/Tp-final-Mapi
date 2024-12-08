@@ -1,78 +1,105 @@
-$default-color-text : #333333;
-$default-color-text-red : #ff4040;
-$border-color : #e5e5e5;
-$border-width : 1px;
+$default-color-text: #333333;
+$default-color-text-red: #ff4040;
+$border-color: #e5e5e5;
+$border-width: 1px;
 
-$last-positions: 36, 37, 38, 39 ,40 ,41, 42;
+$last-positions: 36, 37, 38, 39, 40, 41, 42;
 
 .calendar-container {
-    padding-bottom: 2rem;
+  padding: 1rem 2rem 2rem;
 
-    .calendar-content {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
+  button {
+    margin-bottom: 1rem;
+  }
 
-        .calendar-header {
-            padding: 0.25rem;
-            text-align: center;
-            color: $default-color-text;
-            &:first-of-type {
-                color: $default-color-text-red;
-            }
-        }
+  .calendar-content {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
 
-        .calendar-body {
-            min-height: 6rem;
-            border-top: $border-width solid $border-color;
-            border-left: $border-width solid $border-color;
-            padding: 0.25rem;
+    .calendar-header {
+      padding: 0.5rem;
+      text-align: center;
+      font-weight: bold;
+      color: $default-color-text;
 
-            &:not(.current-month) {
-                &:nth-of-type(7n +1) {
-                    span {
-                        color: #ff404066;
-                    }
-                }
-
-                span {
-                    color: #33333366;
-                }
-            }
-
-            &.current-day {
-                span {
-                    width: 1.7rem;
-                    height: 1.7rem;
-                    border-radius: 50%;
-                    background-color: #135de6;
-                    padding: 0.025rem;
-                    display: grid;
-                    place-content: center;
-                    color: white;
-                }
-            }
-
-            &:nth-of-type(7n) {
-                border-right: $border-width solid $border-color;
-            }
-            
-
-            @each $el in $last-positions {
-                &:nth-of-type(#{$el}) {
-                    border-bottom: $border-width solid $border-color;
-                }
-            }
-
-            span {
-                color: $default-color-text;
-            }
-
-            &:nth-of-type(7n + 1) {
-                span {
-                    color: $default-color-text-red;
-                }
-            }
-
-        }
+      &:first-of-type {
+        color: $default-color-text-red;
+      }
     }
+
+    .calendar-body {
+      min-height: 6rem;
+      border: $border-width solid $border-color;
+      padding: 0.5rem;
+      position: relative;
+      background-color: #fafafa;
+      border-radius: 4px;
+
+      &:not(.current-month) {
+        background-color: #f9f9f9;
+
+        span {
+          color: #999999;
+        }
+      }
+
+      &.current-day {
+        background-color: #e3f2fd;
+
+        span {
+          display: inline-block;
+          width: 1.7rem;
+          height: 1.7rem;
+          line-height: 1.7rem;
+          border-radius: 50%;
+          background-color: #135de6;
+          color: #ffffff;
+          text-align: center;
+        }
+      }
+
+      span {
+        font-size: 0.875rem;
+        color: $default-color-text;
+      }
+
+      &:nth-of-type(7n + 1) span {
+        color: $default-color-text-red;
+      }
+
+      &:nth-of-type(#{$last-positions}) {
+        border-bottom: $border-width solid $border-color;
+      }
+
+      section {
+        margin-top: 0.5rem;
+      }
+
+      .event {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+        border: none;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+
+        mat-icon {
+          font-size: 1rem;
+        }
+
+        &:hover {
+          background-color: #f0f0f0;
+        }
+      }
+    }
+  }
 }
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+  }
