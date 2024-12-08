@@ -24,12 +24,19 @@
         border-bottom: 1px solid colores.$color-borde;
         position: relative;
         overflow: hidden;
+        
+        &:hover{
+          background-color: rgba(250, 254, 0, 0.096);
+          transition: background-color 0.8s ease-in-out, color 0.8s ease-in-out;
+        }
+
+        
   
         .titulos {
           font-size: 20px;
           font-weight: bold;
           margin-bottom: 10px;
-          padding-left: 35px;
+          padding-left: 40px;
         }
   
         #espacio-notas {
@@ -40,6 +47,7 @@
           padding: 10px;
           scroll-snap-type: x mandatory;
           position: relative;
+          
   
           /* Ocultar barra de scroll */
           &::-webkit-scrollbar {
@@ -99,18 +107,29 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+
+        &:hover{
+          background-color: rgba(255, 144, 173, 0.096);
+          transition: background-color 0.8s ease-in-out, color 0.8s ease-in-out;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          border-radius: 8px;
+        }
   
         .titulos {
           font-size: 20px;
           font-weight: bold;
           margin-bottom: 10px;
-          padding-left: 35px;
+          padding-left: 40px;
         }
   
         #calendario {
           width: 100%;
           max-width: 800px;
-          margin: 0 auto;
+          
+          margin-bottom: 15px;
+          margin-left: auto;
+          margin-right: auto;
+          background-color: white;
         }
       }
     }
@@ -119,6 +138,7 @@
     #sector-lista {
       flex: 1;
       padding: 20px;
+     
   
       
     }
