@@ -11,7 +11,12 @@ import { Router } from "@angular/router";
     router = inject(Router);
 
 
-
+    // Este método obtiene una lista de notas desde el servicio TareasService y las convierte en objetos de tipo Nota.
+    // Se inicializa un array vacío donde se almacenarán las notas formateadas.
+    // Llama al método getNotas del servicio TareasService, que hace una solicitud GET al backend y devuelve todas las notas.
+    // Se recorre la respuesta (r) usando un bucle for (let item of r).
+// Para cada item, se crea un nuevo objeto nota de tipo Nota que se ajusta al formato definido en la interfaz Nota. 
+// La nota formateada se agrega al array notasExistentes con notasExistentes.push(nota).
     getNotas(){
         let notasExistentes: Nota[] = [];
         this.notas.getNotas().then(r => {
@@ -51,7 +56,13 @@ import { Router } from "@angular/router";
       });
       return notasExistentes
       }
+      // Devuelve el array de notas procesadas.
+      // Nota: Esto devuelve inmediatamente un array vacío, ya que la operación de fetch es asíncrona. 
 
+
+      // Este método se utiliza para navegar a una vista que muestra una nota específica.
+      // Almacena el ID de la nota en el almacenamiento local del navegador (clave: id). 
+      // Esto permite que otros componentes puedan acceder a este ID sin pasarlo directamente entre ellos.
       verNota(id: number){
         localStorage.setItem('id', id.toString())
         this.router.navigate(['/nota-existente']);

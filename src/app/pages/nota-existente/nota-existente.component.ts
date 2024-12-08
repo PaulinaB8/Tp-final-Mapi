@@ -55,11 +55,20 @@ export class NotaExistenteComponent implements OnInit{
       this.verNota(id)
     }
   }
+//   Obtiene el id de la nota que se está intentando mostrar desde localStorage.
+// Este id se utiliza para cargar la nota específica en la vista.
+// Solo si el ID existe, ejecuta la función verNota(id).
+// this.verNota(id):Llama a la función para obtener los detalles de la nota con ese id de la base de datos.
   
+
 
   editarNota(){
     this.tareas.editarNota(this.nota[0])
   }
+  // Propósito: Editar la nota actual en la base de datos utilizando la información contenida en el primer índice del array nota.
+  // this.tareas.editarNota(this.nota[0]): Llama al servicio editarNota() definido en TareasService. Se envía la nota actual como parámetro.
+
+
 
 borrarNota(){
   Swal.fire({
@@ -83,6 +92,13 @@ borrarNota(){
     }
   });
 }
+// Si el usuario confirma la eliminación:Llama a this.tareas.borrarNota(parseInt(this.id, 10)). 
+// Se convierte el id de string a número.Luego, al completarse la operación, muestra otra alerta de confirmación con Swal.fire.
+// Redirige a la vista previa (vista-previa):Después de confirmar el borrado, el usuario es redirigido a otra ruta mediante this.router.navigate()
+
+
+
+
   verNota(id: string){
     this.nota = [];
     const num = parseInt(id, 10)
@@ -95,6 +111,11 @@ borrarNota(){
     }
 
   }
+  // Se vacía el contenido anterior para asegurarse de que la nota actual se carga de manera limpia.
+  // Convierte el ID del almacenamiento (localStorage) en un número para enviar correctamente la solicitud.
+  // Llama al servicio para obtener la información de una nota por su id.
+  // La respuesta (r) se añade al array this.nota.
+
 
 
 

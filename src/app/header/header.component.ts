@@ -22,11 +22,12 @@ navigateToVistaPrevia() {
   notas = inject(TareasService);
   header = inject(HeaderService);
 
-  notasExistentes: Nota[] = [];
+  notasExistentes: Nota[] = []; 
+  // Una lista vacía que se llenará con las notas obtenidas del servicio.
 
   ngOnInit(){
       this.getNotas();
-    
+      // Aquí se llama a getNotas() para obtener las notas existentes al cargar el componente.
  }
 
  getNotas(){
@@ -34,13 +35,16 @@ navigateToVistaPrevia() {
   let r = this.header.getNotas();
     this.notasExistentes = r;
 }
-
-
+// Obtener las notas desde el servicio HeaderService.
+// Limpia la lista notasExistentes inicializándola como un array vacío.
+// Llama al método getNotas() del servicio HeaderService y almacena el resultado en this.notasExistentes.
 
 
  // Propiedad para controlar si el sidebar está abierto
  isSidebarOpen = false;
 
+
+// Estos métodos se vinculan con eventos (click) en el HTML para abrir/cerrar el menú lateral.
  // Función para abrir el sidebar
  openSidebar() {
    this.isSidebarOpen = true; // Abrimos el sidebar
@@ -54,11 +58,15 @@ navigateToVistaPrevia() {
  addNotes() {
   console.log('Agregar tarea clickeado');
   this.router.navigate(['/notas']);
-  // Agrega la funcionalidad aquí (navegación, abrir modal, etc.)
+//   Propósito: Manejar el clic en el botón "Agregar notas".
+// Muestra un mensaje en la consola.
+// Navega a la ruta /notas usando router.navigate().
 }
 
   verNota(id: number){
     this.header.verNota(id);
+//     Propósito: Manejar la acción de ver una nota específica.
+// Llama al método verNota(id) del servicio HeaderService, pasando el ID de la nota como parámetro.
 }
 
 }

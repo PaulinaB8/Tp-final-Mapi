@@ -20,6 +20,7 @@ export class NotasComponent {
   router = inject(Router);
   header = inject(HeaderService);
 
+  // Se define el objeto notas siguiendo la estructura de la interfaz Nota.
   notas: Nota = {
     id: 0,
     assigner_id: null,
@@ -48,6 +49,10 @@ export class NotasComponent {
     isMarked: false,
   };
 
+//   Se llama al método crearNota() del servicio TareasService, enviando el objeto notas al servidor.
+// Vuelve a obtener las notas actualizadas después de guardar una nueva nota, para reflejar los cambios en la interfaz.
+// Guarda el ID de la nota actual en el almacenamiento local (localStorage) para mantener el estado entre diferentes vistas.
+// Redirige al usuario a la ruta /nota-existente después de guardar la nota, para mostrar los detalles de la nota recién creada.
   guardarNota(){
     this.tareas.crearNota(this.notas).then(r => {
       console.log(r);
@@ -65,6 +70,7 @@ export class NotasComponent {
 }
 
   }
+  
 
 
 

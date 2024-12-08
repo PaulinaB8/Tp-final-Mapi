@@ -12,6 +12,7 @@
                 <div id="espacio-notas" class="scroll-container">
                     <div class="contenido-nota" [routerLink]="['/notas']"><p>Nueva nota</p></div>
                 @for (note of notasExistentes; track $index){
+                    <!-- Aquí estás intentando recorrer las notas dinámicamente para mostrarlas en la vista. -->
                         <div class="contenido-nota" (click)="verNota(note.id)">{{note.content}}</div>
                 }
             </div>

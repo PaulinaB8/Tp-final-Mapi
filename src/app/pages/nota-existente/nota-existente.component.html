@@ -7,6 +7,10 @@
     <textarea id="titulo-nota"  placeholder="{{nota[0].content}}"  [(ngModel)]="nota[0].content"></textarea>   
 
     <textarea id="contenido-nota" placeholder="{{nota[0].description}}"  [(ngModel)]="nota[0].description"></textarea>        
+    <!-- nota[0] hace referencia al primer elemento (índice 0) de la lista o array nota.
+    Usa el contenido de nota[0].content como el valor del marcador.
+    [(ngModel)] es una directiva que establece un enlace de datos bidireccional entre el valor del campo de texto y la propiedad nota[0].content.
+Cada vez que el usuario escriba algo en este campo, nota[0].content se actualizará automáticamente. -->
 
     <div class="nota-content-container">
         <button type="button" id="boton-actualizar-nota"  title="Guardar cambios" (click)="editarNota()">
@@ -17,3 +21,5 @@
         </button>
     </div>
 </div>
+<!-- Cuando el usuario escribe en el campo de texto para el título y contenido de la nota, los datos se guardan automáticamente en el objeto nota[0].
+Si el servidor responde con un nuevo valor para la nota, puedes asignar ese valor al objeto nota[0], y la vista se actualizará automáticamente -->

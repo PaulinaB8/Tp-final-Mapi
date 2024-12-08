@@ -22,10 +22,12 @@ export class VistaPreviaComponent implements OnInit{
   notas = inject(TareasService);
   header = inject (HeaderService);
 
+  // Un arreglo que almacenará las notas actuales que se obtendrán del servidor.
   notasExistentes : Nota[] = [];
+  // Otro arreglo para manejar las notas, pero no parece ser usado en la lógica actual.
   nota: Nota [] = [];
 
-
+// no entendi para que sirve esto lol
   mes = "";
 
   ngOnInit(){
@@ -39,6 +41,9 @@ export class VistaPreviaComponent implements OnInit{
     this.getNotas()
   }
 
+  // Limpia el arreglo de notas para asegurarse de que no haya datos previos.
+  // Llama al método getNotas() del servicio HeaderService. Este debería obtener las notas actuales desde el servidor.
+  // Asigna los datos obtenidos al arreglo this.notasExistentes.
   getNotas(){
     this.notasExistentes = [];
     let r = this.header.getNotas();
