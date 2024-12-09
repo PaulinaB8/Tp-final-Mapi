@@ -13,7 +13,7 @@
                    
                 @for (note of notasExistentes; track $index){
                     <!-- Aquí estás intentando recorrer las notas dinámicamente para mostrarlas en la vista. -->
-                        <div class="contenido-nota" (click)="verNota(note.id)">{{note.content}}</div>
+                        <div class="contenido-nota" [routerLink]="['/notas', note.id]" >{{note.content}}</div>
                 }
             </div>
         

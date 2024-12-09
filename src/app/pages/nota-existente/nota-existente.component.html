@@ -1,9 +1,10 @@
 <header>
     <app-header></app-header>
 </header>
-
-
-<div class="nota-container">
+@if(!nota){
+    <p>Error al cargar ...</p>
+}@else {
+    <div class="nota-container">
     <textarea id="titulo-nota"  placeholder="{{nota[0].content}}"  [(ngModel)]="nota[0].content"></textarea>   
 
     <textarea id="contenido-nota" placeholder="{{nota[0].description}}"  [(ngModel)]="nota[0].description"></textarea>        
@@ -21,5 +22,9 @@ Cada vez que el usuario escriba algo en este campo, nota[0].content se actualiza
         </button>
     </div>
 </div>
+}
+
+
+
 <!-- Cuando el usuario escribe en el campo de texto para el título y contenido de la nota, los datos se guardan automáticamente en el objeto nota[0].
 Si el servidor responde con un nuevo valor para la nota, puedes asignar ese valor al objeto nota[0], y la vista se actualizará automáticamente -->
