@@ -4,23 +4,49 @@ main{
     background-color: lightblue;
     background-size: cover;
     min-width: 100%;
-    height:630px;
+    height: 729px;
     background-size: cover;
     margin-top: 0px;
+    align-content: center;
+    justify-items: center;
 }
 #formulario{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    width: 600px;
-    height: 400px;
+    width: 350px;
+    height: 150px;
     background-color: white;
-    margin-top:150px;
-    margin-left: 350px;
+    margin-top:0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
     padding: 50px;
     align-items: center;
     border-radius: 20px;
     box-shadow: 0px 0px 3px 3px rgb(231, 225, 225);
+    
+}
+
+#signin-button{
+    display: flex;
+    width: 100px;
+    padding:5px;
+    background-color: colores.$color-simple;
+    text-align: center; 
+    align-items: center;
+    border-radius: 10px;
+    border: none;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+#signin-button:hover {
+    background-color: colores.$color-fondo-login;
+}
+
+img{
+    width: 80px;
 }
 
 #boton-continuar{
