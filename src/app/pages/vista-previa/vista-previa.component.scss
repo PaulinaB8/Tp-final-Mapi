@@ -50,11 +50,26 @@
           scroll-snap-type: x mandatory;
           position: relative;
           
-  
-          /* Ocultar barra de scroll */
+                  
+          /* Estilos para una scrollbar sutil */
           &::-webkit-scrollbar {
-            display: none;
+            height: 6px; /* Altura más delgada */
           }
+
+          &::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05); /* Fondo tenue */
+            border-radius: 10px; /* Bordes redondeados */
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.2); /* Color tenue para el "pulgar" */
+            border-radius: 10px;
+          }
+
+          &::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.3); /* Un poco más visible al pasar el mouse */
+          }  
+          
   
           .contenido-nota {
             flex: 0 0 auto;
