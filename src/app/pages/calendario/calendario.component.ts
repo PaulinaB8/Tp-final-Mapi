@@ -29,8 +29,6 @@ export class CalendarioComponent {
 
   private date = new Date();
 
-  private findEvent = findEvent;
-
   headers: NCalendar.Header = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
 
   calendarData: NCalendar.Body[] = [];
@@ -49,14 +47,6 @@ export class CalendarioComponent {
   //Replaced createEvent with handleEvent
   private handleEvent(item: NCalendar.IEvent) {
     const newCalendarData = [...this.calendarData];
-
-    const findEvent = this.findEvent(newCalendarData, item);
-
-    if (!findEvent) {
-      createEvent(newCalendarData, item);
-    } else {
-      updateEvent(newCalendarData, item, findEvent);
-    }
 
     this.calendarData = newCalendarData;
   }
@@ -93,28 +83,12 @@ export class CalendarioComponent {
     
   }
 
-  removeEvent(calendarIndex: number, eventIndex: number) {
-    const newCalendarData = [...this.calendarData];
-    newCalendarData[calendarIndex].events.splice(eventIndex, 1);
-    this.calendarData = newCalendarData;
-  }
-
-  openModal() {
-    this.dialogService.openDialog();
-  }
-
-  openModalEdit(event: NCalendar.IEvent) {
-    this.dialogService.openDialog(event);
-  }
-
   mes = "";
 
   ngOnInit(){
     let fecha : Date = new Date();
     let mes = fecha.toLocaleDateString("es-Cl", {
-      
-      month: "long",
-      
+      month: "long",  
     })
     
     this.mes = mes.toUpperCase();
