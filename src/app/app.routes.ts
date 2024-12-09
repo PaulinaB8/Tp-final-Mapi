@@ -2,7 +2,6 @@ import {  Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { VistaPreviaComponent } from './pages/vista-previa/vista-previa.component';
 import { NotasComponent } from './pages/notas/notas.component';
-import { TodolistComponent } from './pages/todolist/todolist.component';
 import { CalendarioComponent } from './pages/calendario/calendario.component';
 import { NotaExistenteComponent } from './pages/nota-existente/nota-existente.component';
 
@@ -30,10 +29,6 @@ export const routes: Routes = [
     {
         path: "nota-existente", 
         component: NotaExistenteComponent,
-    },
-    {
-        path: "todolist", 
-        component: TodolistComponent,
     },
     {
         path: "calendario", 

@@ -43,7 +43,9 @@
           display: flex;
           overflow-x: auto;
           gap: 16px;
-          max-width: 800px; /* Igual al sector de calendario */
+          margin: 0 auto;
+          max-width: 1200px; /* Ancho máximo para permitir scroll horizontal */
+          width: 100%;
           padding: 10px;
           scroll-snap-type: x mandatory;
           position: relative;
@@ -131,14 +133,13 @@
           margin-right: auto;
           background-color: white;
         }
+        
+
+        
       }
     }
   
-    /* Sección Listas */
-    #sector-lista {
-      flex: 1;
-      padding: 20px;    
-    }
+
   }
   
   /* Título principal */
