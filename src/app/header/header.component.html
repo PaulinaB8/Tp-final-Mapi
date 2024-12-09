@@ -62,7 +62,6 @@
             <!-- Este es un interpolador de Angular. Inserta dinámicamente el contenido de la nota (nota.content) 
              en el botón, para mostrar el texto o descripción de la nota. -->
             <div class="nota-existente" [routerLink]="['/notas', nota.id]">{{nota.content}}</div>
-            <button  class="nota-existente" (click) ="verNota(nota.id)">{{nota.content}}</button>
           }
         </div>
 
