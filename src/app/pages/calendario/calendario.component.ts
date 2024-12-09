@@ -106,4 +106,17 @@ export class CalendarioComponent {
   openModalEdit(event: NCalendar.IEvent) {
     this.dialogService.openDialog(event);
   }
+
+  mes = "";
+
+  ngOnInit(){
+    let fecha : Date = new Date();
+    let mes = fecha.toLocaleDateString("es-Cl", {
+      
+      month: "long",
+      
+    })
+    
+    this.mes = mes.toUpperCase();
+  }
 }

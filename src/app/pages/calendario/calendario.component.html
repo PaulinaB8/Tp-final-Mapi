@@ -1,9 +1,9 @@
 <header>
     <app-header></app-header>
 </header> 
-<h1>CALENDARIO</h1>
-<section class="calendar-container">
 
+<section class="calendar-container">
+    <p>{{mes}}</p>
     <article class="calendar-content">
         @for (header of headers; track header) {
             <span class="calendar-header">{{header}}</span>
