@@ -54,7 +54,14 @@ export class NotasComponent {
 // Guarda el ID de la nota actual en el almacenamiento local (localStorage) para mantener el estado entre diferentes vistas.
 // Redirige al usuario a la ruta /nota-existente después de guardar la nota, para mostrar los detalles de la nota recién creada.
   guardarNota(){
-    this.tareas.crearNota(this.notas).then(r => {
+    if(this.notas.content == ""){
+      Swal.fire({
+        icon: "error",
+        title: "Error al guardar",
+        text: "Asegúrese de ingresar un título!",
+      });
+    }else{
+      this.tareas.crearNota(this.notas).then(r => {
       console.log(r);
       Swal.fire({
         title: '¡Nota guardada!',
@@ -65,17 +72,9 @@ export class NotasComponent {
   this.header.getNotas();
   localStorage.setItem('id', this.notas.id.toString());
   this.router.navigate(['/vista-previa']);
-
-})
-}
-
+    })
   }
-  
-
-
-
-
-
-
+}
+}
 
 
