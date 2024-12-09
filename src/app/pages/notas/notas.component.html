@@ -3,22 +3,21 @@
 </header>
 
 
-<div class="nota-container">
-<!-- ngModel es una directiva de Angular para el enlace bidireccional de datos (two-way data binding).
-Lo que escriba el usuario en este <textarea> se almacena automáticamente en la propiedad notas.content de tu componente TypeScript. -->
-    <textarea id="titulo-nota"  placeholder="Titulo"  [(ngModel)]="notas.content"></textarea>   
+<textarea id="titulo-nota"  placeholder="Nueva nota"  [(ngModel)]="notas.content"></textarea>   
+        
+<button type="button" id="boton-agregar-nota" (click)="guardarNota()">Guardar la nota</button>
+<textarea id="contenido-nota" placeholder="Empiece a escribir aquí..."  [(ngModel)]="notas.description"></textarea>        
 
-<!-- Similar a lo anterior, aquí se enlaza el contenido del campo de texto con la propiedad notas.description en tu código TypeScript.
-El valor que el usuario escriba en este campo se almacenará automáticamente en la propiedad notas.description. -->
-    <textarea id="contenido-nota" placeholder="Empiece a escribir aquí..."  [(ngModel)]="notas.description"></textarea>        
+
+<div class="nota-container">
+    <textarea id="titulo-nota"  placeholder="Nueva nota"  [(ngModel)]="notas.content"></textarea>   
 
     <div class="nota-content-container">
         <button type="button" id="boton-agregar-nota" (click)="guardarNota()">
-            Guardar nota
+            <i class='bx bx-list-check'></i>
         </button>
     </div>
-</div>
 
-<!-- ngmodel Enlazan automáticamente la entrada de los campos de texto con el objeto notas definido en tu código TypeScript.
-Evita la necesidad de tener que leer manualmente los campos de texto en tu código, ya que Angular se encarga de sincronizar 
-automáticamente la vista con tu lógica. -->
+    <textarea id="contenido-nota" placeholder="Empiece a escribir aquí..."  [(ngModel)]="notas.description"></textarea>        
+
+</div>

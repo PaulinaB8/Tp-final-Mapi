@@ -64,6 +64,12 @@ export class NotaExistenteComponent implements OnInit{
 
   editarNota(){
     this.tareas.editarNota(this.nota[0])
+    Swal.fire({
+      title: '¡Nota actualizada!',
+      text: 'Los cambios realizados se han guardado con éxito',
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
+}) 
   }
   // Propósito: Editar la nota actual en la base de datos utilizando la información contenida en el primer índice del array nota.
   // this.tareas.editarNota(this.nota[0]): Llama al servicio editarNota() definido en TareasService. Se envía la nota actual como parámetro.
