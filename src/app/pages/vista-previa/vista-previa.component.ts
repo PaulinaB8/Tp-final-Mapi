@@ -27,10 +27,17 @@ export class VistaPreviaComponent implements OnInit{
   // Otro arreglo para manejar las notas, pero no parece ser usado en la lógica actual.
   nota: Nota [] = [];
 
-
-
+// no entendi para que sirve esto lol
+  mes = "";
 
   ngOnInit(){
+    let fecha : Date = new Date();
+    let mes = fecha.toLocaleDateString("es-Cl", {
+      day:"numeric",
+      month: "long",
+      year:"numeric",
+    })
+    this.mes = mes;
     this.getNotas()
   }
 
