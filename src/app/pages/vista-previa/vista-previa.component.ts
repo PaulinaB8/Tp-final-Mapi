@@ -50,8 +50,5 @@ export class VistaPreviaComponent implements OnInit{
     this.notasExistentes = r;
   }
 
-  verNota(id:number){
-    this.header.verNota(id);
-    }
   }
 

@@ -27,7 +27,7 @@ export const routes: Routes = [
         component: NotasComponent,
     },
     {
-        path: "nota-existente", 
+        path: "notas/:id", 
         component: NotaExistenteComponent,
     },
     {
