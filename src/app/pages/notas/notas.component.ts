@@ -64,7 +64,7 @@ export class NotasComponent {
   }) 
   this.header.getNotas();
   localStorage.setItem('id', this.notas.id.toString());
-  this.router.navigate(['/nota-existente']);
+  this.router.navigate(['/vista-previa']);
 
 })
 }
