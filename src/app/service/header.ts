@@ -64,7 +64,6 @@ import { Router } from "@angular/router";
       // Almacena el ID de la nota en el almacenamiento local del navegador (clave: id). 
       // Esto permite que otros componentes puedan acceder a este ID sin pasarlo directamente entre ellos.
       verNota(id: number){
-        localStorage.setItem('id', id.toString())
-        this.router.navigate(['/nota-existente']);
+        this.router.navigate(['/notas:', id]);
     }
   }

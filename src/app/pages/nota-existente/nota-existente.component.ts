@@ -1,4 +1,4 @@
-import { Component, inject, OnChanges, OnInit } from '@angular/core';
+import { Component, inject, Input, OnChanges, OnInit } from '@angular/core';
 import { TareasService } from '../../service/tareas.service';
 import Swal from 'sweetalert2';
 import { HeaderComponent } from '../../header/header.component';
@@ -18,6 +18,9 @@ export class NotaExistenteComponent implements OnInit{
   tareas = inject(TareasService);
   router = inject(Router);
   route = inject(ActivatedRoute)
+
+  // id : number|undefined;
+  @Input() id = 0;
 
   nota: Nota[]|undefined = [{
     id: 0,
@@ -45,15 +48,13 @@ export class NotaExistenteComponent implements OnInit{
     duration: null,
     deadline: null,
     isMarked: false}];
-  id = '';
 
   ngOnInit(){
-      const id = localStorage.getItem('id');
-      console.log(id);
-    if(id != null){
-      this.id = id;
-      this.verNota(id)
+    if (this.id != undefined){
+      this.verNota(this.id);
+      console.log (this.id)
     }
+      
   }
 //   Obtiene el id de la nota que se está intentando mostrar desde localStorage.
 // Este id se utiliza para cargar la nota específica en la vista.
@@ -90,8 +91,8 @@ borrarNota(){
     confirmButtonText: "Aceptar",
     cancelButtonText: "Cancelar",
   }).then((result) => {
-    if (result.isConfirmed) {
-      this.tareas.borrarNota(parseInt(this.id,10)).then(() => {
+    if (result.isConfirmed && this.id != undefined) {
+      this.tareas.borrarNota(this.id).then(() => {
         Swal.fire({
           title: "Tarea eliminada",
           text: "La tarea ha sido eliminada correctamente",
@@ -108,10 +109,9 @@ borrarNota(){
 
 
 
-  verNota(id: string){
+  verNota(id: number){
     this.nota = [];
-    const num = parseInt(id, 10)
-    this.tareas.getNotaById(num).then(r =>{
+    this.tareas.getNotaById(id).then(r =>{
       if(this.nota != null) {
         this.nota.push(r) ;
       console.log(this.nota)
