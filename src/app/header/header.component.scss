@@ -131,6 +131,30 @@ justify-content: space-between; /* Fondo del header */
     border: 1px solid #e0e0e0; /* Línea opcional para separar visualmente */
     border-radius: 4px;
     background-color: colores.$color-simple; /* Fondo del área scrolleable */
+
+    
+    &::-webkit-scrollbar {
+      width: 10px; /* Ancho del scrollbar */
+  }
+
+  &::-webkit-scrollbar-track {
+      background: colores.$color-todoList; /* Color de fondo del track */
+      border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #84b1e6, #588bb7); /* Gradiente para el scrollbar */
+      border-radius: 10px;
+      cursor: grab;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(135deg, #84b1e6, #588bb7); 
+      cursor: grab; /* Manito al pasar */
+  }
+  &::-webkit-scrollbar-thumb:active {
+    cursor: grabbing; /* Cambia a manito cerrada cuando haces clic */
+}
   }
 
   .nota-existente {
