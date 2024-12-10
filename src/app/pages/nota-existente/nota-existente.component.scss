@@ -32,7 +32,33 @@
         box-sizing: border-box;
         resize: none;
         font-family: 'Arial', sans-serif;  /* Fuente personalizada */
+
+
+        &::-webkit-scrollbar {
+          width: 10px; /* Ancho del scrollbar */
+      }
+
+      &::-webkit-scrollbar-track {
+          background: colores.$color-notas; /* Color de fondo del track */
+          border-radius: 10px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+          background: linear-gradient(135deg, #fcd356, #fab041); /* Gradiente para el scrollbar */
+          border-radius: 10px;
+          cursor: grab;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(135deg, #ff9900, #ff6600); 
+          cursor: grab; /* Manito al pasar */
+      }
+      &::-webkit-scrollbar-thumb:active {
+        cursor: grabbing; /* Cambia a manito cerrada cuando haces clic */
     }
+    }
+
+    
     
 }
 
