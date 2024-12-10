@@ -10,7 +10,7 @@ main{
     align-content: center;
     justify-items: center;
 }
-#formulario{
+#seccion-inicio{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -28,7 +28,7 @@ main{
     
 }
 
-#signin-button{
+#continuar-button{
     display: flex;
     width: 100px;
     padding:5px;
@@ -43,7 +43,7 @@ main{
   transition: background-color 0.3s ease-in-out, transform 0.3s ease;
 }
 
-#signin-button:hover {
+#continuar-button:hover {
     background-color: colores.$color-fondo-login;
 }
 
@@ -51,38 +51,8 @@ img{
     width: 80px;
 }
 
-// #boton-continuar{
-//     display: flex;
-//     width: 100px;
-//     padding:5px;
-//     background-color: blue;
-//     text-align: center;
-// }
-
  #titulo{
     font-size: 30px;
 }
 
-// .input{
-//     height: 50px;
-//     width: 400px;
-//     border-color: rgb(175, 173, 173);
-//     border-radius: 2px;
-//     background-color: rgb(250, 249, 249);
-// }
 
-// label{
-//     text-align: left;
-// }
-
-// #login-registrarse{
-//     display: flex;
-//     flex-direction: row;
-
-// }
-
-// a{
-//     color:blue;
-//     padding-top: 15px;
-//     padding-left:5px;
-// }

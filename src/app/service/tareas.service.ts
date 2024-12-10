@@ -8,7 +8,7 @@ export class TareasService {
 
   // Método que recibe un objeto de tipo Nota (definido en la interfaz Nota) para enviarlo al servidor mediante un POST.
   crearNota( contenido: Nota){
-      console.error(contenido)
+      console.error(contenido);
       return fetch("http://localhost:4000", {
         method: "POST",
         headers: {
@@ -47,7 +47,7 @@ export class TareasService {
 // method: "PUT": Especifica que se quiere actualizar un recurso existente.
 // body: JSON.stringify(nota): Convierte el objeto actualizado de nota a JSON.
 
-    editarNota(nota : Nota){
+    editarNota(nota : Nota) {
       return fetch('http://localhost:4000/' + nota.id, {
         method: "PUT",
         headers: {

@@ -55,12 +55,12 @@
           &::-webkit-scrollbar {
             height: 6px; /* Altura más delgada */
           }
-
+// Espacio donde mueve barra, vias 
           &::-webkit-scrollbar-track {
             background: rgba(0, 0, 0, 0.05); /* Fondo tenue */
             border-radius: 10px; /* Bordes redondeados */
           }
-
+// barra que se mueve
           &::-webkit-scrollbar-thumb {
             background: rgba(0, 0, 0, 0.2); /* Color tenue para el "pulgar" */
             border-radius: 10px;
@@ -131,6 +131,7 @@
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
           border-radius: 8px;
         }
+        // Ease forma de transición 
   
         .titulos {
           font-size: 20px;

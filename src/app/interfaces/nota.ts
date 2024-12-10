@@ -26,7 +26,3 @@ export interface Nota {
             isMarked?: boolean;
 }
 
-export interface NotaCreada {
-    content: string;
-    description: string;
-}

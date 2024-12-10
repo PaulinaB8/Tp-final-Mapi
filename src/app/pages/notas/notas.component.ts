@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import { HeaderComponent } from '../../header/header.component';
 import { Router } from '@angular/router';
 import { Nota } from '../../interfaces/nota';
-import { HeaderService } from '../../service/header';
+
 
 @Component({
   selector: 'app-notas',
@@ -18,7 +18,6 @@ export class NotasComponent {
 
   tareas = inject(TareasService);
   router = inject(Router);
-  header = inject(HeaderService);
 
   // Se define el objeto notas siguiendo la estructura de la interfaz Nota.
   notas: Nota = {
@@ -69,8 +68,6 @@ export class NotasComponent {
         icon: 'success',
         confirmButtonText: 'Aceptar'
   }) 
-  this.header.getNotas();
-  localStorage.setItem('id', this.notas.id.toString());
   this.router.navigate(['/vista-previa']);
     })
   }

@@ -2,8 +2,10 @@
     <app-header></app-header>
 </header>
 
+
 <div class="nota-container">
     <textarea id="titulo-nota"  placeholder="Nueva nota"  [(ngModel)]="notas.content"></textarea>   
+    <!-- Two-way data biding -->
 
     <div class="nota-content-container">
         <button type="button" id="boton-agregar-nota" title="Guardar Nota" (click)="guardarNota()">

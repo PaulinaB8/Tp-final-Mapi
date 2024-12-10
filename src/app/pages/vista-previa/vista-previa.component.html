@@ -3,19 +3,25 @@
 </header> 
 
 <main>
-    <h1>WELCOME</h1>
+    <h1>WELCOME TO MAPI</h1>
     <div id="contenido"> 
 
         <div id="sector-notas-y-calendario">
             <div id="sector-notas">
                 <p class="titulos">Notes</p>
                 <div id="espacio-notas" class="scroll-container">
-                   
-                @for (note of notasExistentes; track $index){
+
+
+                    @if(!notasExistentes){
+                        <p>Cargando...</p>
+                    }@else {
+                        @for (note of notasExistentes; track $index){
                     <!-- Aquí estás intentando recorrer las notas dinámicamente para mostrarlas en la vista. -->
-                        <div class="contenido-nota" [routerLink]="['/notas', note.id]" >{{note.content}}</div>
+                        <div class="contenido-nota" [routerLink]="['/notas-existentes', note.id]" >{{note.content}}</div>
                 }
-            </div>
+                    }
+                   
+                </div>
         
         </div>
            

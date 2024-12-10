@@ -3,7 +3,7 @@
 display: flex;
 align-items: center; /* Alinea verticalmente los elementos */
 padding: 10px ;
-background-color: #ffffff;
+background-color: colores.$color-simple;
 justify-content: space-between; /* Fondo del header */
 }
 
@@ -30,7 +30,7 @@ justify-content: space-between; /* Fondo del header */
     z-index: 1000;
     top: 0;
     left: 0;
-    background-color: #ffffff;
+    background-color: colores.$color-simple;
     overflow-x: hidden; /* Solo el scroll horizontal está oculto */
     transition: width 0.3s ease-in-out;
     color: rgb(0, 0, 0);
@@ -46,13 +46,13 @@ justify-content: space-between; /* Fondo del header */
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: #ffffff;
+    background-color: colores.$color-simple;
 
     .closebtn {
       font-size: 30px;
       font-weight: bold;
       cursor: pointer;
-      color: #000000;
+      color: colores.$color-oscuro;
       position: absolute; /* Permite posicionarlo en un lugar específico */
       top: 10px; /* Alineado a 10px desde arriba */
       right: 10px; /* Alineado a 10px desde la derecha */
@@ -72,7 +72,7 @@ justify-content: space-between; /* Fondo del header */
     align-items: center;
     padding: 10px 15px;
     padding-bottom: 0px;
-    background-color: #ffffff;
+    background-color: colores.$color-simple;
 
     #add-notes {
       display: flex;
@@ -81,9 +81,9 @@ justify-content: space-between; /* Fondo del header */
       width: 100%;
       font-size: 16px;
       font-weight: bold;
-      color: #000000;
+      color: colores.$color-oscuro;
       padding: 10px 15px;
-      background-color: #ffffff;
+      background-color: colores.$color-simple;
       border: none;
       cursor: pointer;
       transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -130,11 +130,11 @@ justify-content: space-between; /* Fondo del header */
     padding-right: 5px;
     border: 1px solid #e0e0e0; /* Línea opcional para separar visualmente */
     border-radius: 4px;
-    background-color: #ffffff; /* Fondo del área scrolleable */
+    background-color: colores.$color-simple; /* Fondo del área scrolleable */
   }
 
   .nota-existente {
-    background-color: #ffffff;
+    background-color: colores.$color-simple;
     padding: 10px 15px;
     font-size: 14px;
     text-align: left;
@@ -194,7 +194,7 @@ img {
   align-items: center;
   padding: 10px 15px;
   padding-bottom: 0px;
-  background-color: #ffffff;
+  background-color: colores.$color-simple;
 
   .link-calendario {
     display: flex;
@@ -203,7 +203,7 @@ img {
     padding: 10px 15px;
     font-size: 16px;
     font-weight: bold;
-    color: #000000;
+    color: colores.$color-oscuro;
     text-decoration: none;
     border: none;
     border-radius: 4px; 
@@ -227,7 +227,7 @@ img {
   align-items: center;
   padding: 10px 15px;
   padding-bottom: 0px;
-  background-color: #ffffff;
+  background-color: colores.$color-simple;
 
   .link-inicio {
     display: flex;
@@ -236,7 +236,7 @@ img {
     padding: 10px 15px;
     font-size: 16px;
     font-weight: bold;
-    color: #000000;
+    color: colores.$color-oscuro;
     text-decoration: none;
     border: none;
     border-radius: 4px;

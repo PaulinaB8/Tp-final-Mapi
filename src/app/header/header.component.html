@@ -13,8 +13,10 @@
     </a>
 
 
-
-    <div class="overlay" *ngIf="isSidebarOpen" (click)="closeSidebar()"></div>
+    @if(isSidebarOpen){
+      <div class="overlay"  (click)="closeSidebar()"></div>
+    }
+    
 
     <!-- Controlado dinámicamente por isSidebarOpen. Si está activo, se aplica la clase open, 
      lo que cambia su estilo (desplegándose con una animación). -->
@@ -61,7 +63,7 @@
             <!-- Al hacer clic en el botón, llama al método verNota() y pasa el id de la nota como argumento. -->
             <!-- Este es un interpolador de Angular. Inserta dinámicamente el contenido de la nota (nota.content) 
              en el botón, para mostrar el texto o descripción de la nota. -->
-            <div class="nota-existente" [routerLink]="['/notas', nota.id]">{{nota.content}}</div>
+            <div class="nota-existente" [routerLink]="['/notas-existentes', nota.id]">{{nota.content}}</div>
           }
         </div>
 
