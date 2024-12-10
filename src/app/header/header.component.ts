@@ -13,10 +13,9 @@ import { Nota } from '../interfaces/nota';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
+
+
 export class HeaderComponent implements OnInit{
-// navigateToVistaPrevia() {
-//  throw new Error('Method not implemented.');
-//  }
   router = inject(Router);
   notas = inject(TareasService);
 

@@ -2,7 +2,7 @@
     <app-header></app-header>
 </header>
 @if(!nota){
-    <p>Error al cargar ...</p>
+    <p id="cargando-texto">Cargando ...</p>
 }@else {
     <div class="nota-container">
     <textarea id="titulo-nota"  placeholder="{{nota.content}}"  [(ngModel)]="nota.content"></textarea>   

@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { TareasService } from '../../service/tareas.service';
 import Swal from 'sweetalert2';
 import { HeaderComponent } from '../../header/header.component';
@@ -19,54 +19,28 @@ export class NotaExistenteComponent implements OnInit, OnDestroy{
   tareas = inject(TareasService);
   router = inject(Router);
   route = inject(ActivatedRoute)
+  // permite acceder a informacion sobre la ruta activa (parámetros, fragmentos, etc.)
+
   private routeSub!: Subscription;
-  // id : number|undefined;
+//Suscripción a un observable. Subscription: clase de RxJS (librería que permite trabajar con observables)
   id = 0;
 
-  nota: Nota|undefined = {
-    id: 0,
-    assigner_id: null,
-    assignee_id: null,
-    project_id: 0,
-    section_id: null,
-    parent_id: null,
-    order: 0,
-    content: '', 
-    description: '',
-    is_completed: false,
-    labels: [''],
-    priority: 0,
-    comment_count: 0,
-    creator_id: 0,
-    created_at: '',
-    due : {
-      date: '',
-      string: '',
-      lang: '',
-      is_recurring: false,
-    } ,
-    url: '',
-    duration: null,
-    deadline: null,
-    isMarked: false
-  };
+   nota: Nota|undefined;
 
   ngOnInit() {
     this.routeSub = this.route.params.subscribe(params => {
-     // console.error(params);
-      this.id = +params['id']; // Convierte el id de string a número
+      this.id = +params['id'];  // + lo convierte en número
       this.verNota(this.id);   // Llama a la función para cargar los datos de la nota
   });
-
-
-  //  console.error(this.id);
     if (this.id != undefined){
-      this.verNota(this.id);
-    //  console.log (this.id)
-    }
-      
-  }
-//   Obtiene el id de la nota que se está intentando mostrar desde localStorage.
+          this.verNota(this.id);
+        //  console.log (this.id)
+        }
+          
+      }
+// 57. Observable que emite un objeto con los parámetros dinámicos de la ruta cada vez que cambian.
+    
+
 // Este id se utiliza para cargar la nota específica en la vista.
 // Solo si el ID existe, ejecuta la función verNota(id).
 // this.verNota(id):Llama a la función para obtener los detalles de la nota con ese id de la base de datos.
@@ -75,7 +49,7 @@ export class NotaExistenteComponent implements OnInit, OnDestroy{
 
   editarNota(){
     if(this.nota != undefined){
-      this.tareas.editarNota(this.nota).then(r => {
+      this.tareas.editarNota(this.nota).then(() => {
         Swal.fire({
           title: '¡Nota actualizada!',
           text: 'Los cambios realizados se han guardado con éxito',
@@ -123,11 +97,7 @@ borrarNota(){
 
   verNota(id: number){
     this.tareas.getNotaById(id).then(r =>{
-      if(this.nota != null) {
-       
         this.nota = r;
-     // console.log(this.nota)
-      }
     })
     }
 
