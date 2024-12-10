@@ -24,8 +24,8 @@ export class VistaPreviaComponent implements OnInit{
 
   // Un arreglo que almacenará las notas actuales que se obtendrán del servidor.
   notasExistentes : Nota[] = [];
-  // Otro arreglo para manejar las notas, pero no parece ser usado en la lógica actual.
-  nota: Nota [] = [];
+ 
+ 
 
 
   ngOnInit(){
