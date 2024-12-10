@@ -5,9 +5,9 @@
     <p>Error al cargar ...</p>
 }@else {
     <div class="nota-container">
-    <textarea id="titulo-nota"  placeholder="{{nota[0].content}}"  [(ngModel)]="nota[0].content"></textarea>   
+    <textarea id="titulo-nota"  placeholder="{{nota.content}}"  [(ngModel)]="nota.content"></textarea>   
 
-    <textarea id="contenido-nota" placeholder="{{nota[0].description}}"  [(ngModel)]="nota[0].description"></textarea>        
+    <textarea id="contenido-nota" placeholder="{{nota.description}}"  [(ngModel)]="nota.description"></textarea>        
     <!-- nota[0] hace referencia al primer elemento (índice 0) de la lista o array nota.
     Usa el contenido de nota[0].content como el valor del marcador.
     [(ngModel)] es una directiva que establece un enlace de datos bidireccional entre el valor del campo de texto y la propiedad nota[0].content.

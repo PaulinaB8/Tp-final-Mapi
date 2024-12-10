@@ -1,10 +1,11 @@
-import { Component, inject, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, inject, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { TareasService } from '../../service/tareas.service';
 import Swal from 'sweetalert2';
 import { HeaderComponent } from '../../header/header.component';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Nota } from '../../interfaces/nota';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 
 @Component({
@@ -14,15 +15,15 @@ import { Nota } from '../../interfaces/nota';
   templateUrl: './nota-existente.component.html',
   styleUrl: './nota-existente.component.scss'
 })
-export class NotaExistenteComponent implements OnInit{
+export class NotaExistenteComponent implements OnInit, OnDestroy{
   tareas = inject(TareasService);
   router = inject(Router);
   route = inject(ActivatedRoute)
-
+  private routeSub!: Subscription;
   // id : number|undefined;
-  @Input() id = 0;
+  id = 0;
 
-  nota: Nota[]|undefined = [{
+  nota: Nota|undefined = {
     id: 0,
     assigner_id: null,
     assignee_id: null,
@@ -47,12 +48,21 @@ export class NotaExistenteComponent implements OnInit{
     url: '',
     duration: null,
     deadline: null,
-    isMarked: false}];
+    isMarked: false
+  };
 
-  ngOnInit(){
+  ngOnInit() {
+    this.routeSub = this.route.params.subscribe(params => {
+     // console.error(params);
+      this.id = +params['id']; // Convierte el id de string a número
+      this.verNota(this.id);   // Llama a la función para cargar los datos de la nota
+  });
+
+
+  //  console.error(this.id);
     if (this.id != undefined){
       this.verNota(this.id);
-      console.log (this.id)
+    //  console.log (this.id)
     }
       
   }
@@ -65,13 +75,15 @@ export class NotaExistenteComponent implements OnInit{
 
   editarNota(){
     if(this.nota != undefined){
-      this.tareas.editarNota(this.nota[0])
-    Swal.fire({
-      title: '¡Nota actualizada!',
-      text: 'Los cambios realizados se han guardado con éxito',
-      icon: 'success',
-      confirmButtonText: 'Aceptar'
-}) 
+      this.tareas.editarNota(this.nota).then(r => {
+        Swal.fire({
+          title: '¡Nota actualizada!',
+          text: 'Los cambios realizados se han guardado con éxito',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+      }) 
+      })
+
     }
     
   }
@@ -110,22 +122,24 @@ borrarNota(){
 
 
   verNota(id: number){
-    this.nota = [];
     this.tareas.getNotaById(id).then(r =>{
       if(this.nota != null) {
-        this.nota.push(r) ;
-      console.log(this.nota)
+       
+        this.nota = r;
+     // console.log(this.nota)
       }
     })
     }
 
+ngOnDestroy(): void {
+  if (this.routeSub) {
+    this.routeSub.unsubscribe();
   }
+
+  }
+}
+
   // Se vacía el contenido anterior para asegurarse de que la nota actual se carga de manera limpia.
   // Convierte el ID del almacenamiento (localStorage) en un número para enviar correctamente la solicitud.
   // Llama al servicio para obtener la información de una nota por su id.
   // La respuesta (r) se añade al array this.nota.
-
-
-
-
-
