@@ -64,12 +64,19 @@
           &::-webkit-scrollbar-thumb {
             background: rgba(0, 0, 0, 0.2); /* Color tenue para el "pulgar" */
             border-radius: 10px;
+            cursor: grab;
           }
 
+
           &::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 0, 0, 0.3); /* Un poco más visible al pasar el mouse */
+            background: rgba(0, 0, 0, 0.3);
+            cursor: grab; /* Manito al pasar */
           }  
           
+          &::-webkit-scrollbar-thumb:active {
+            cursor: grabbing; /* Cambia a manito cerrada cuando haces clic */
+        }
+
   
           .contenido-nota {
             flex: 0 0 auto;
