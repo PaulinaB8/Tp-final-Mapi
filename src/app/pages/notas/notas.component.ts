@@ -61,14 +61,24 @@ export class NotasComponent {
       });
     }else{
       this.tareas.crearNota(this.notas).then(r => {
-      console.log(r);
-      Swal.fire({
-        title: '¡Nota guardada!',
-        text: 'Tu nota se ha guardado correctamente',
-        icon: 'success',
-        confirmButtonText: 'Aceptar'
-  }) 
-  this.router.navigate(['/vista-previa']);
+        if (r.ok) {
+        Swal.fire({
+                title: '¡Nota guardada!',
+                text: 'Tu nota se ha guardado correctamente',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+        });
+        this.router.navigate(['/vista-previa']);
+        }else{
+          Swal.fire({
+            icon: "error",
+            title: "Error al guardar",
+            text: "Por favor, vuelva a ingresar su nota",
+            confirmButtonText: 'Volver a intentar'
+          });
+        }
+
+  
     })
   }
 }

@@ -31,12 +31,7 @@ export class NotaExistenteComponent implements OnInit, OnDestroy{
     this.routeSub = this.route.params.subscribe(params => {
       this.id = +params['id'];  // + lo convierte en número
       this.verNota(this.id);   // Llama a la función para cargar los datos de la nota
-  });
-    if (this.id != undefined){
-          this.verNota(this.id);
-        //  console.log (this.id)
-        }
-          
+  });     
       }
 // 57. Observable que emite un objeto con los parámetros dinámicos de la ruta cada vez que cambian.
     
@@ -49,18 +44,26 @@ export class NotaExistenteComponent implements OnInit, OnDestroy{
 
   editarNota(){
     if(this.nota != undefined){
-      this.tareas.editarNota(this.nota).then(() => {
-        Swal.fire({
-          title: '¡Nota actualizada!',
-          text: 'Los cambios realizados se han guardado con éxito',
-          icon: 'success',
-          confirmButtonText: 'Aceptar'
-      }) 
-      })
-
-    }
-    
-  }
+      this.tareas.editarNota(this.nota).then(r => {
+        if (r.ok) {
+          Swal.fire({
+                  title: '¡Nota actualizada!',
+                  text: 'Tu nota se ha actualizado correctamente',
+                  icon: 'success',
+                  confirmButtonText: 'Aceptar'
+          })
+          }else{
+            Swal.fire({
+              icon: "error",
+              title: "Error al actualizar",
+              text: "Por favor, vuelva a actualizar su nota",
+              confirmButtonText: 'Volver a intentar'
+            });
+          }
+  
+  })
+}
+}
   // Propósito: Editar la nota actual en la base de datos utilizando la información contenida en el primer índice del array nota.
   // this.tareas.editarNota(this.nota[0]): Llama al servicio editarNota() definido en TareasService. Se envía la nota actual como parámetro.
 
@@ -68,7 +71,7 @@ export class NotaExistenteComponent implements OnInit, OnDestroy{
 
 borrarNota(){
   Swal.fire({
-    title: "Quieres borrar la nota?",
+    title: "¿Quieres borrar la nota?",
     text: "Una vez borrada ya no podrás acceder a ella",
     icon: "warning",
     showCancelButton: true,
@@ -78,15 +81,27 @@ borrarNota(){
     cancelButtonText: "Cancelar",
   }).then((result) => {
     if (result.isConfirmed && this.id != undefined) {
-      this.tareas.borrarNota(this.id).then(() => {
-        Swal.fire({
+      this.tareas.borrarNota(this.id).then(r => {
+        if(r.ok){
+          Swal.fire({
           title: "Tarea eliminada",
           text: "La tarea ha sido eliminada correctamente",
           icon: "success"
+        }).then(() => this.router.navigate(['/vista-previa']))
+        }else{
+          Swal.fire({
+          icon: "error",
+          title: "Error al borrar",
+          text: "Por favor, vuelva a borrar su nota",
+          confirmButtonText: 'Volver a intentar'
         });
-      }).then(() => this.router.navigate(['/vista-previa']));
-    }
-  });
+        }
+      })
+      }
+  }).catch(error => {
+          console.error('Error al borrar la nota:', error);
+   })
+
 }
 // Si el usuario confirma la eliminación:Llama a this.tareas.borrarNota(parseInt(this.id, 10)). 
 // Se convierte el id de string a número.Luego, al completarse la operación, muestra otra alerta de confirmación con Swal.fire.
@@ -98,10 +113,12 @@ borrarNota(){
   verNota(id: number){
     this.tareas.getNotaById(id).then(r =>{
         this.nota = r;
+    }).catch(error => {
+      console.error('Error al obtener la nota:', error);
     })
-    }
+  }
 
-ngOnDestroy(): void {
+ngOnDestroy(){
   if (this.routeSub) {
     this.routeSub.unsubscribe();
   }

@@ -8,7 +8,6 @@ export class TareasService {
 
   // Método que recibe un objeto de tipo Nota (definido en la interfaz Nota) para enviarlo al servidor mediante un POST.
   crearNota( contenido: Nota){
-      console.error(contenido);
       return fetch("http://localhost:4000", {
         method: "POST",
         headers: {
