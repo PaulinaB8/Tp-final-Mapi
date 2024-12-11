@@ -19,6 +19,8 @@ export class HeaderComponent implements OnInit{
   router = inject(Router);
   notas = inject(TareasService);
 
+  isSidebarOpen = false;
+
   notasExistentes: Nota[] = []; 
   // Una lista vacía que se llenará con las notas obtenidas del servicio.
 
@@ -69,7 +71,6 @@ export class HeaderComponent implements OnInit{
 
 
  // Propiedad para controlar si el sidebar está abierto
- isSidebarOpen = false;
 
 
 // Estos métodos se vinculan con eventos (click) en el HTML para abrir/cerrar el menú lateral.

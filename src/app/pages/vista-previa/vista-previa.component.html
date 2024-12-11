@@ -9,9 +9,7 @@
         <div id="sector-notas-y-calendario">
             <div id="sector-notas">
                 <p class="titulos">Notas</p>
-                <div id="espacio-notas" class="scroll-container">
-
-
+                <div id="espacio-notas" >
                     @if(!notasExistentes){
                         <p>Cargando...</p>
                     }@else {
@@ -28,7 +26,7 @@
             <div id="sector-calendario" [routerLink]="['/calendario']">
                 <p class="titulos">Calendario</p>
                     <section id="calendario" style = 'width : 250px'>
-                        <mat-calendar></mat-calendar>
+                        <mat-calendar></mat-calendar> <!--componente de la librería Angular Material-->
                     </section>
             </div>
 
