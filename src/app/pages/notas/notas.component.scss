@@ -45,6 +45,30 @@ textarea{
     box-sizing: border-box;
     resize: none;
     font-family: 'Arial', sans-serif; 
+
+    
+    &::-webkit-scrollbar {
+        width: 10px; 
+    }
+
+    &::-webkit-scrollbar-track {
+        background: colores.$color-notas; 
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #fcd356, #fab041); 
+        border-radius: 10px;
+        cursor: grab;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(135deg, #ff9900, #ff6600); 
+        cursor: grab; 
+    }
+    &::-webkit-scrollbar-thumb:active {
+      cursor: grabbing; 
+  }
 }
 
 #boton-agregar-nota {

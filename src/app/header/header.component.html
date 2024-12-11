@@ -4,14 +4,10 @@
     <button id="menuButton" (click)="openSidebar()"> 
       <i class='bx bx-menu'></i> 
     </button>
-    
-    
-    
 
     <a [routerLink]="['/vista-previa']" >
       <img src="assets/mapi-logo.png" alt="mapi-logo" id="mapi-logo">
     </a>
-
 
     @if(isSidebarOpen){
       <div class="overlay"  (click)="closeSidebar()"></div>

@@ -128,7 +128,5 @@ ngOnDestroy(){
   }
 }
 
-  // Se vacía el contenido anterior para asegurarse de que la nota actual se carga de manera limpia.
-  // Convierte el ID del almacenamiento (localStorage) en un número para enviar correctamente la solicitud.
-  // Llama al servicio para obtener la información de una nota por su id.
-  // La respuesta (r) se añade al array this.nota.
+// Propósito: Liberar recursos, cancelar suscripciones y prevenir fugas de memoria.
+// En este caso: ngOnDestroy cancela la suscripción a los cambios en los parámetros de la URL (this.route.params).
