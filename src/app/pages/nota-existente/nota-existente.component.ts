@@ -22,10 +22,12 @@ export class NotaExistenteComponent implements OnInit, OnDestroy{
   // permite acceder a informacion sobre la ruta activa (parámetros, fragmentos, etc.)
 
   private routeSub!: Subscription;
-//Suscripción a un observable. Subscription: clase de RxJS (librería que permite trabajar con observables)
-  id = 0;
+// es una variable que guarda  una referencia a la suscripción a un observable. En este caso sirve para escuchar los cambios en la suscripcion de los parametros
 
-   nota: Nota|undefined;
+  id = 0;
+  
+
+  nota: Nota|undefined;
 
   ngOnInit() {
     this.routeSub = this.route.params.subscribe(params => {

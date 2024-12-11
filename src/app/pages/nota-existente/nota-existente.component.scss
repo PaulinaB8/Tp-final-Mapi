@@ -7,9 +7,9 @@
     margin: 30px auto 20px; 
     display: block;
     text-align: center;
-    background-color: #ffffff; /* Fondo blanco */
+    background-color: colores.$color-simplefff; 
     resize: none;
-    font-family: 'Arial', sans-serif; /* Fuente personalizada */
+    font-family: 'Arial', sans-serif; 
 }
 
 .nota-container {
@@ -21,40 +21,40 @@
 
     #contenido-nota {
         border: none;
-        outline: none; /* Evita que los bordes se pongan negros al escribir */
+        outline: none; 
         width: 80%;
         font-size: 20px;
-        height: 500px; /* Ajusta la altura del área de texto */
+        height: 500px; 
         border-radius: 10px;
-        background-color: colores.$color-notas; /* Fondo amarillo pastel */
+        background-color: colores.$color-notas; 
         margin-bottom: 20px;
         padding: 20px;
         box-sizing: border-box;
         resize: none;
-        font-family: 'Arial', sans-serif;  /* Fuente personalizada */
+        font-family: 'Arial', sans-serif;  
 
 
         &::-webkit-scrollbar {
-          width: 10px; /* Ancho del scrollbar */
+          width: 10px; 
       }
 
       &::-webkit-scrollbar-track {
-          background: colores.$color-notas; /* Color de fondo del track */
+          background: colores.$color-notas; 
           border-radius: 10px;
       }
 
       &::-webkit-scrollbar-thumb {
-          background: linear-gradient(135deg, #fcd356, #fab041); /* Gradiente para el scrollbar */
+          background: linear-gradient(135deg, #fcd356, #fab041); 
           border-radius: 10px;
           cursor: grab;
       }
 
       &::-webkit-scrollbar-thumb:hover {
           background: linear-gradient(135deg, #ff9900, #ff6600); 
-          cursor: grab; /* Manito al pasar */
+          cursor: grab; 
       }
       &::-webkit-scrollbar-thumb:active {
-        cursor: grabbing; /* Cambia a manito cerrada cuando haces clic */
+        cursor: grabbing; 
     }
     }
 
@@ -65,12 +65,12 @@
 .nota-content-container {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Espacio entre botones */
+    gap: 20px;
     margin-bottom: 20px;
 
     #boton-eliminar-nota{
-        background: linear-gradient(135deg, #e74c3c, #c0392b); /* Color rojo con gradiente */
-        color: #fff;
+        background: linear-gradient(135deg, #e74c3c, #c0392b); 
+        color: colores.$color-simple;
         font-size: 20px;
         border-radius: 8px;
         border: none;
@@ -85,14 +85,14 @@
             box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
             
               &:hover::after {
-                opacity: 1; /* Aparece el tooltip al hacer hover */
+                opacity: 1; 
               }
         }
     }
 
    #boton-actualizar-nota{
-        background: linear-gradient(135deg, #b3ff66, #95ff53); /* Degradado moderno */
-        color: #fff;
+        background: linear-gradient(135deg, #b3ff66, #95ff53); 
+        color: colores.$color-simple;
         font-size: 20px;
         border-radius: 8px;
         border: none;
@@ -109,7 +109,7 @@
         
         
           &:hover::after {
-            opacity: 1; /* Aparece el tooltip al hacer hover */
+            opacity: 1; 
           }
         }
 

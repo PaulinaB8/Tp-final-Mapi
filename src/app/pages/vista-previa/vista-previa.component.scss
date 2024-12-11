@@ -1,6 +1,6 @@
 @use "./../../../../public/styles/colores.scss";
 
-/* Contenedor general */
+
 #contenido {
     background-color: colores.$color-container-contenido;
     width: 1250px;
@@ -11,14 +11,14 @@
     gap: 20px;
     padding: 20px;
   
-    /* Sección Notas y Calendario */
+    
     #sector-notas-y-calendario {
       flex: 2;
       display: flex;
       flex-direction: column;
       gap: 20px;
   
-      /* Notas */
+     
       #sector-notas {
         flex: 1;
         border-bottom: 1px solid colores.$color-borde;
@@ -44,7 +44,7 @@
           overflow-x: auto;
           gap: 16px;
           margin: 0 auto;
-          max-width: 1200px; /* Ancho máximo para permitir scroll horizontal */
+          max-width: 1200px;
           width: 100%;
           padding: 10px;
           scroll-snap-type: x mandatory;
@@ -57,12 +57,12 @@
           }
 // Espacio donde mueve barra, vias 
           &::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.05); /* Fondo tenue */
-            border-radius: 10px; /* Bordes redondeados */
+            background: rgba(0, 0, 0, 0.05); 
+            border-radius: 10px; 
           }
 // barra que se mueve
           &::-webkit-scrollbar-thumb {
-            background: rgba(0, 0, 0, 0.2); /* Color tenue para el "pulgar" */
+            background: rgba(0, 0, 0, 0.2); 
             border-radius: 10px;
             cursor: grab;
           }
@@ -96,7 +96,7 @@
               transition: transform 0.3s ease;
             }
   
-            /* Títulos en negrita dentro de las notas */
+           
             p {
               font-weight: bold;
               text-align: center;
@@ -104,7 +104,7 @@
           }
         }
   
-        /* Efecto borroso en los bordes del scroll */
+       
         &:before,
         &:after {
           content: "";
@@ -125,7 +125,7 @@
         }
       }
   
-      /* Calendario */
+      
       #sector-calendario {
         flex: 1;
         display: flex;
@@ -165,7 +165,7 @@
 
   }
   
-  /* Título principal */
+  
   h1 {
     font-size: 36px;
     font-weight: bold;

@@ -64,11 +64,7 @@ $last-positions: 36, 37, 38, 39, 40, 41, 42;
 
       &:nth-of-type(7n + 1) span {
         color: colores.$default-color-text-red;
-      }//Comienza en el primero y va cada 7 
-
-      // &:nth-of-type(#{$last-positions}) {
-      //   border-bottom: colores.$border-width solid colores.$border-color;
-      // }
+      }
 
     }
   }
